@@ -43,6 +43,7 @@ import projectcss from "./plasmic_iddr.module.css"; // plasmic-import: dJqK6LEBe
 import sty from "./PlasmicNetworkCard.module.css"; // plasmic-import: DybXCSmk6J/css
 
 import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: iDs7aDQs7T/icon
+import Icon8Icon from "./icons/PlasmicIcon__Icon8"; // plasmic-import: ZLscOeex6V/icon
 
 export type PlasmicNetworkCard__VariantMembers = {};
 export type PlasmicNetworkCard__VariantsArgs = {};
@@ -145,15 +146,23 @@ function PlasmicNetworkCard__RenderFunc(props: {
               >
                 {"BSC"}
               </h5>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__dTpuR
-                )}
-              >
-                {"https://www.bscscan.com/token/0x9a...f00e"}
-              </div>
+              {true ? (
+                <div className={classNames(projectcss.all, sty.freeBox__mcgrt)}>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__dTpuR
+                    )}
+                  >
+                    {"Open Eplorer"}
+                  </div>
+                  <Icon8Icon
+                    className={classNames(projectcss.all, sty.svg__s3YMw)}
+                    role={"img"}
+                  />
+                </div>
+              ) : null}
             </p.Stack>
           ),
           value: args.children

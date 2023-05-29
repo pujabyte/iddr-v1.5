@@ -55,8 +55,10 @@ import GoogleDocsSvgrepoComsvgIcon from "./icons/PlasmicIcon__GoogleDocsSvgrepoC
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: g3M_pomcN7I/icon
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: WhOp2OsiY-D/icon
 import Icon4Icon from "./icons/PlasmicIcon__Icon4"; // plasmic-import: ljio8ldcWK/icon
+import Icon8Icon from "./icons/PlasmicIcon__Icon8"; // plasmic-import: ZLscOeex6V/icon
 import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: iDs7aDQs7T/icon
 import Icon5Icon from "./icons/PlasmicIcon__Icon5"; // plasmic-import: fM-swEdfd/icon
+import CmcsvgIcon from "./icons/PlasmicIcon__Cmcsvg"; // plasmic-import: n_1Fj4QpLk/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: V54Kju9r17/icon
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: lDkdlle9aD/icon
 import CloseBoldSvgrepoComsvgIcon from "./icons/PlasmicIcon__CloseBoldSvgrepoComsvg"; // plasmic-import: 3wjTpps_Fo/icon
@@ -81,6 +83,7 @@ export type PlasmicHomepage__OverridesType = {
   desc4?: p.Flex<"div">;
   title2?: p.Flex<"div">;
   embedHtml?: p.Flex<typeof Embed>;
+  cmc?: p.Flex<"a"> & Partial<LinkProps>;
   telegram?: p.Flex<"a"> & Partial<LinkProps>;
   twitter?: p.Flex<"a"> & Partial<LinkProps>;
   menuOverlay?: p.Flex<typeof MenuOverlay>;
@@ -489,7 +492,7 @@ function PlasmicHomepage__RenderFunc(props: {
                             <NetworkCard
                               className={classNames(
                                 "__wab_instance",
-                                sty.networkCard__xDce4
+                                sty.networkCard__n9Ai3
                               )}
                             >
                               <p.Stack
@@ -498,7 +501,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.a,
-                                  sty.link__uxk25
+                                  sty.link__l6O5Q
                                 )}
                                 component={Link}
                                 href={
@@ -510,7 +513,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 <Icon4Icon
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg__zmZfg
+                                    sty.svg__skzEw
                                   )}
                                   role={"img"}
                                 />
@@ -520,26 +523,44 @@ function PlasmicHomepage__RenderFunc(props: {
                                     projectcss.all,
                                     projectcss.h5,
                                     projectcss.__wab_text,
-                                    sty.h5__xKqW7
+                                    sty.h5__aUu4S
                                   )}
                                 >
                                   {"Ethereum"}
                                 </h5>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__eQFmF
-                                  )}
-                                >
-                                  {"https://etherscan.io/token/0x9a...f00e"}
-                                </div>
+                                {true ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__k19Go
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text___7SC4Q
+                                      )}
+                                    >
+                                      {
+                                        "https://etherscan.io/token/0x9a8284c2cec196478f01ef4446a0222dd4def00e"
+                                      }
+                                    </div>
+                                    <Icon8Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__br0Nq
+                                      )}
+                                      role={"img"}
+                                    />
+                                  </div>
+                                ) : null}
                               </p.Stack>
                             </NetworkCard>
                             <NetworkCard
                               className={classNames(
                                 "__wab_instance",
-                                sty.networkCard__egM44
+                                sty.networkCard__sg0Br
                               )}
                             >
                               <p.Stack
@@ -548,7 +569,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.a,
-                                  sty.link__v0Eu
+                                  sty.link__bBe0P
                                 )}
                                 component={Link}
                                 href={
@@ -560,7 +581,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 <Icon3Icon
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg__pXwPp
+                                    sty.svg__mZ6Km
                                   )}
                                   role={"img"}
                                 />
@@ -570,26 +591,42 @@ function PlasmicHomepage__RenderFunc(props: {
                                     projectcss.all,
                                     projectcss.h5,
                                     projectcss.__wab_text,
-                                    sty.h5__hgS0P
+                                    sty.h5__oZmj0
                                   )}
                                 >
                                   {"BSC"}
                                 </h5>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text___5N1Ut
-                                  )}
-                                >
-                                  {"https://www.bscscan.com/token/0x9a...f00e"}
-                                </div>
+                                {true ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__ih0Sx
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text___9Mr6
+                                      )}
+                                    >
+                                      {"https://bscscan.com/token/0x9a...f00e"}
+                                    </div>
+                                    <Icon8Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg___4Uf8L
+                                      )}
+                                      role={"img"}
+                                    />
+                                  </div>
+                                ) : null}
                               </p.Stack>
                             </NetworkCard>
                             <NetworkCard
                               className={classNames(
                                 "__wab_instance",
-                                sty.networkCard__lcSGe
+                                sty.networkCard__piGP
                               )}
                             >
                               <p.Stack
@@ -598,7 +635,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 className={classNames(
                                   projectcss.all,
                                   projectcss.a,
-                                  sty.link__acCsK
+                                  sty.link__hikkj
                                 )}
                                 component={Link}
                                 href={
@@ -610,7 +647,7 @@ function PlasmicHomepage__RenderFunc(props: {
                                 <Icon5Icon
                                   className={classNames(
                                     projectcss.all,
-                                    sty.svg__qvuC0
+                                    sty.svg__ji7Nd
                                   )}
                                   role={"img"}
                                 />
@@ -620,20 +657,38 @@ function PlasmicHomepage__RenderFunc(props: {
                                     projectcss.all,
                                     projectcss.h5,
                                     projectcss.__wab_text,
-                                    sty.h5__id2PH
+                                    sty.h5__yeSt
                                   )}
                                 >
                                   {"Polygon"}
                                 </h5>
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
-                                    sty.text__peegW
-                                  )}
-                                >
-                                  {"https://polygonscan.com/token/0x9a...f00e"}
-                                </div>
+                                {true ? (
+                                  <div
+                                    className={classNames(
+                                      projectcss.all,
+                                      sty.freeBox__iVmVy
+                                    )}
+                                  >
+                                    <div
+                                      className={classNames(
+                                        projectcss.all,
+                                        projectcss.__wab_text,
+                                        sty.text__reNf9
+                                      )}
+                                    >
+                                      {
+                                        "https://polygonscan.com/token/0x9a...f00e"
+                                      }
+                                    </div>
+                                    <Icon8Icon
+                                      className={classNames(
+                                        projectcss.all,
+                                        sty.svg__e4Ja2
+                                      )}
+                                      role={"img"}
+                                    />
+                                  </div>
+                                ) : null}
                               </p.Stack>
                             </NetworkCard>
                           </p.Stack>
@@ -1031,6 +1086,22 @@ function PlasmicHomepage__RenderFunc(props: {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__y0C9B)}
               >
+                <p.PlasmicLink
+                  data-plasmic-name={"cmc"}
+                  data-plasmic-override={overrides.cmc}
+                  className={classNames(projectcss.all, projectcss.a, sty.cmc)}
+                  component={Link}
+                  href={
+                    "https://coinmarketcap.com/currencies/idr-digital/" as const
+                  }
+                  platform={"nextjs"}
+                  target={"_blank" as const}
+                >
+                  <CmcsvgIcon
+                    className={classNames(projectcss.all, sty.svg__bBfyP)}
+                    role={"img"}
+                  />
+                </p.PlasmicLink>
                 <p.PlasmicLink
                   data-plasmic-name={"telegram"}
                   data-plasmic-override={overrides.telegram}
@@ -1610,6 +1681,7 @@ const PlasmicDescendants = {
     "desc4",
     "title2",
     "embedHtml",
+    "cmc",
     "telegram",
     "twitter",
     "menuOverlay"
@@ -1623,6 +1695,7 @@ const PlasmicDescendants = {
   desc4: ["desc4"],
   title2: ["title2"],
   embedHtml: ["embedHtml"],
+  cmc: ["cmc"],
   telegram: ["telegram"],
   twitter: ["twitter"],
   menuOverlay: ["menuOverlay"]
@@ -1641,6 +1714,7 @@ type NodeDefaultElementType = {
   desc4: "div";
   title2: "div";
   embedHtml: typeof Embed;
+  cmc: "a";
   telegram: "a";
   twitter: "a";
   menuOverlay: typeof MenuOverlay;
@@ -1715,6 +1789,7 @@ export const PlasmicHomepage = Object.assign(
     desc4: makeNodeComponent("desc4"),
     title2: makeNodeComponent("title2"),
     embedHtml: makeNodeComponent("embedHtml"),
+    cmc: makeNodeComponent("cmc"),
     telegram: makeNodeComponent("telegram"),
     twitter: makeNodeComponent("twitter"),
     menuOverlay: makeNodeComponent("menuOverlay"),

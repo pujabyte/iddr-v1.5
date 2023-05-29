@@ -215,6 +215,18 @@
     display: none;
   }
 }
+.cmc {
+  position: relative;
+  display: flex;
+}
+.svg__j8Hg9 {
+  object-fit: cover;
+  max-width: 100%;
+  color: #000000;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
 .telegram {
   position: relative;
   display: flex;

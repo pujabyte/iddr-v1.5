@@ -61,12 +61,30 @@
   font-weight: 600;
   min-width: 0;
 }
-.text__dTpuR {
+.freeBox__mcgrt {
+  display: flex;
   position: relative;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
   width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text__dTpuR {
+  width: auto;
   color: #626e99;
   white-space: pre;
   text-overflow: ellipsis;
   overflow: hidden;
-  min-width: 0;
+}
+.svg__s3YMw {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 24px;
+  height: 24px;
+  color: #626e99;
+  flex-shrink: 0;
 }

@@ -46,6 +46,7 @@ import sty from "./PlasmicNavbar.module.css"; // plasmic-import: ThJz7UjPOLc/css
 
 import MenuSvgrepoComsvgIcon from "./icons/PlasmicIcon__MenuSvgrepoComsvg"; // plasmic-import: XTdEHy648t/icon
 import CloseBoldSvgrepoComsvgIcon from "./icons/PlasmicIcon__CloseBoldSvgrepoComsvg"; // plasmic-import: 3wjTpps_Fo/icon
+import CmcsvgIcon from "./icons/PlasmicIcon__Cmcsvg"; // plasmic-import: n_1Fj4QpLk/icon
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: V54Kju9r17/icon
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: lDkdlle9aD/icon
 
@@ -72,6 +73,7 @@ export type PlasmicNavbar__OverridesType = {
   mnItem2?: p.Flex<"a"> & Partial<LinkProps>;
   mnItem3?: p.Flex<"a"> & Partial<LinkProps>;
   mnItem4?: p.Flex<"a"> & Partial<LinkProps>;
+  cmc?: p.Flex<"a"> & Partial<LinkProps>;
   telegram?: p.Flex<"a"> & Partial<LinkProps>;
   twitter?: p.Flex<"a"> & Partial<LinkProps>;
 };
@@ -370,6 +372,22 @@ function PlasmicNavbar__RenderFunc(props: {
             className={classNames(projectcss.all, sty.freeBox__rxuxc)}
           >
             <p.PlasmicLink
+              data-plasmic-name={"cmc"}
+              data-plasmic-override={overrides.cmc}
+              className={classNames(projectcss.all, projectcss.a, sty.cmc)}
+              component={Link}
+              href={
+                "https://coinmarketcap.com/currencies/idr-digital/" as const
+              }
+              platform={"nextjs"}
+              target={"_blank" as const}
+            >
+              <CmcsvgIcon
+                className={classNames(projectcss.all, sty.svg__j8Hg9)}
+                role={"img"}
+              />
+            </p.PlasmicLink>
+            <p.PlasmicLink
               data-plasmic-name={"telegram"}
               data-plasmic-override={overrides.telegram}
               className={classNames(projectcss.all, projectcss.a, sty.telegram)}
@@ -413,6 +431,7 @@ const PlasmicDescendants = {
     "mnItem2",
     "mnItem3",
     "mnItem4",
+    "cmc",
     "telegram",
     "twitter"
   ],
@@ -422,6 +441,7 @@ const PlasmicDescendants = {
   mnItem2: ["mnItem2"],
   mnItem3: ["mnItem3"],
   mnItem4: ["mnItem4"],
+  cmc: ["cmc"],
   telegram: ["telegram"],
   twitter: ["twitter"]
 } as const;
@@ -436,6 +456,7 @@ type NodeDefaultElementType = {
   mnItem2: "a";
   mnItem3: "a";
   mnItem4: "a";
+  cmc: "a";
   telegram: "a";
   twitter: "a";
 };
@@ -506,6 +527,7 @@ export const PlasmicNavbar = Object.assign(
     mnItem2: makeNodeComponent("mnItem2"),
     mnItem3: makeNodeComponent("mnItem3"),
     mnItem4: makeNodeComponent("mnItem4"),
+    cmc: makeNodeComponent("cmc"),
     telegram: makeNodeComponent("telegram"),
     twitter: makeNodeComponent("twitter"),
 
