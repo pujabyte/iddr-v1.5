@@ -152,6 +152,7 @@ function PlasmicHomepage__RenderFunc(props: {
       <style>{`
         body {
           margin: 0;
+          scroll-behavior: smooth;
         }
       `}</style>
 
