@@ -212,7 +212,7 @@ function PlasmicNavbar__RenderFunc(props: {
               data-plasmic-override={overrides.mnItem2}
               className={classNames(projectcss.all, projectcss.a, sty.mnItem2)}
               component={Link}
-              href={"#about" as const}
+              href={"#about scroll={false}" as const}
               platform={"nextjs"}
             >
               <div
@@ -230,7 +230,7 @@ function PlasmicNavbar__RenderFunc(props: {
               data-plasmic-override={overrides.mnItem3}
               className={classNames(projectcss.all, projectcss.a, sty.mnItem3)}
               component={Link}
-              href={"#team" as const}
+              href={"#team scroll={false}" as const}
               platform={"nextjs"}
             >
               <div
@@ -248,7 +248,7 @@ function PlasmicNavbar__RenderFunc(props: {
               data-plasmic-override={overrides.mnItem4}
               className={classNames(projectcss.all, projectcss.a, sty.mnItem4)}
               component={Link}
-              href={"#contact" as const}
+              href={"#contact scroll={false}" as const}
               platform={"nextjs"}
             >
               <div
