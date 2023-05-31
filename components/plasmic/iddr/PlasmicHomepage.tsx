@@ -36,12 +36,12 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import { Embed } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import: PKldDYkH42/codeComponent
 import { PlasmicHead } from "@plasmicapp/react-web"; // plasmic-import: T1KJa5bGl4Ip-/codeComponent
 import Navbar from "../../Navbar"; // plasmic-import: ThJz7UjPOLc/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal"; // plasmic-import: R6s1FdhksG/codeComponent
 import Button2 from "../../Button2"; // plasmic-import: R7FQakg198I/component
 import NetworkCard from "../../NetworkCard"; // plasmic-import: DybXCSmk6J/component
-import { Embed } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import: PKldDYkH42/codeComponent
 import MenuOverlay from "../../MenuOverlay"; // plasmic-import: l7JCXcEFvGg/component
 
 import { useScreenVariants as useScreenVariantsvWlfn14Jm89In } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: vWLFN14Jm89IN/globalVariant
@@ -82,7 +82,6 @@ export type PlasmicHomepage__OverridesType = {
   desc3?: p.Flex<"div">;
   desc4?: p.Flex<"div">;
   title2?: p.Flex<"div">;
-  embedHtml?: p.Flex<typeof Embed>;
   cmc?: p.Flex<"a"> & Partial<LinkProps>;
   telegram?: p.Flex<"a"> & Partial<LinkProps>;
   twitter?: p.Flex<"a"> & Partial<LinkProps>;
@@ -170,6 +169,13 @@ function PlasmicHomepage__RenderFunc(props: {
             sty.root
           )}
         >
+          <Embed
+            className={classNames("__wab_instance", sty.embedHtml___44Y4U)}
+            code={
+              "<style>\nhtml {\n  scroll-behavior: smooth;\n}\n\nbody {\n  scroll-behavior: smooth;\n}\n</style>" as const
+            }
+          />
+
           <PlasmicHead
             data-plasmic-name={"pageMetadataOverride"}
             data-plasmic-override={overrides.pageMetadataOverride}
@@ -1053,9 +1059,10 @@ function PlasmicHomepage__RenderFunc(props: {
                 </div>
                 <div className={classNames(projectcss.all, sty.column__haRrA)}>
                   <Embed
-                    data-plasmic-name={"embedHtml"}
-                    data-plasmic-override={overrides.embedHtml}
-                    className={classNames("__wab_instance", sty.embedHtml)}
+                    className={classNames(
+                      "__wab_instance",
+                      sty.embedHtml__gslQ
+                    )}
                     code={
                       hasVariant(globalVariants, "screen", "mobileOnly")
                         ? ('<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15865.606422642355!2d106.8222893!3d-6.2106448!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f55e2d3fbe1f%3A0x9a3af0621b70d07f!2sWeWork%20Sinarmas%20MSIG%20Tower!5e0!3m2!1sen!2sid!4v1684983001341!5m2!1sen!2sid" width="360" height="460" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' as const)
@@ -1680,7 +1687,6 @@ const PlasmicDescendants = {
     "desc3",
     "desc4",
     "title2",
-    "embedHtml",
     "cmc",
     "telegram",
     "twitter",
@@ -1694,7 +1700,6 @@ const PlasmicDescendants = {
   desc3: ["desc3"],
   desc4: ["desc4"],
   title2: ["title2"],
-  embedHtml: ["embedHtml"],
   cmc: ["cmc"],
   telegram: ["telegram"],
   twitter: ["twitter"],
@@ -1713,7 +1718,6 @@ type NodeDefaultElementType = {
   desc3: "div";
   desc4: "div";
   title2: "div";
-  embedHtml: typeof Embed;
   cmc: "a";
   telegram: "a";
   twitter: "a";
@@ -1788,7 +1792,6 @@ export const PlasmicHomepage = Object.assign(
     desc3: makeNodeComponent("desc3"),
     desc4: makeNodeComponent("desc4"),
     title2: makeNodeComponent("title2"),
-    embedHtml: makeNodeComponent("embedHtml"),
     cmc: makeNodeComponent("cmc"),
     telegram: makeNodeComponent("telegram"),
     twitter: makeNodeComponent("twitter"),

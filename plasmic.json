@@ -346,7 +346,7 @@
         }
       ],
       "indirect": false,
-      "globalContextsFilePath": "plasmic/iddr/PlasmicGlobalContextsProvider.tsx",
+      "globalContextsFilePath": "",
       "codeComponents": [
         {
           "id": "T1KJa5bGl4Ip-",
