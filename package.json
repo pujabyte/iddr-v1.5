@@ -12,6 +12,7 @@
     "@plasmicapp/cli": "^0.1.286",
     "@plasmicapp/react-web": "^0.2.220",
     "@plasmicpkgs/plasmic-basic-components": "^0.0.154",
+    "@plasmicpkgs/plasmic-embed-css": "^0.1.128",
     "@plasmicpkgs/plasmic-nav": "^0.0.114",
     "@plasmicpkgs/react-awesome-reveal": "^3.8.144",
     "@types/node": "20.2.5",
