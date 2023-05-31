@@ -26,7 +26,7 @@ export default function GlobalContextsProvider(
       css={
         embedCssProps && "css" in embedCssProps
           ? embedCssProps.css!
-          : ("* {\n    scroll-behavior: smooth;\n}" as const)
+          : ("html {\n\tscroll-behavior: smooth;\n}\nbody {\n  scroll-behavior: smooth;\n}" as const)
       }
     >
       {children}
