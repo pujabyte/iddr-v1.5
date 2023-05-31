@@ -275,13 +275,13 @@
         },
         {
           "assetId": "dJqK6LEBeKixAKagJBAmzL",
-          "type": "projectCss",
-          "checksum": "0a30f682b7204175ab3a58383f328516"
+          "checksum": "dc4e9e905d44ca88e880aa38a0508f49",
+          "type": "globalContexts"
         },
         {
           "assetId": "dJqK6LEBeKixAKagJBAmzL",
-          "checksum": "23f1313d9cfc47d6035840d315f03879",
-          "type": "globalContexts"
+          "type": "projectCss",
+          "checksum": "0a30f682b7204175ab3a58383f328516"
         }
       ],
       "codegenVersion": "0.0.1"
