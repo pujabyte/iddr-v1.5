@@ -1114,6 +1114,25 @@ function PlasmicHomepage__RenderFunc(props: {
                   )}
                 </ph.DataCtxReader>
               </DataProvider>
+              {true ? (
+                <p.PlasmicImg
+                  alt={""}
+                  className={classNames(sty.img___0QD8P)}
+                  displayHeight={"auto" as const}
+                  displayMaxHeight={"none" as const}
+                  displayMaxWidth={"100%" as const}
+                  displayMinHeight={"0" as const}
+                  displayMinWidth={"0" as const}
+                  displayWidth={"auto" as const}
+                  loading={"lazy" as const}
+                  src={{
+                    src: "/plasmic/iddr/images/documentIconpng.png",
+                    fullWidth: 32,
+                    fullHeight: 32,
+                    aspectRatio: undefined
+                  }}
+                />
+              ) : null}
             </div>
           </div>
           <div
