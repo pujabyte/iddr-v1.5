@@ -1120,15 +1120,74 @@ function PlasmicHomepage__RenderFunc(props: {
                         };
                         return __composite;
                       })()}
-                      linkTo={currentItem => {
-                        return currentItem.url[0];
-                      }}
                       pageSize={5 as const}
                       pagination={true}
                       rowActions={(() => {
-                        const __composite = [{ type: null, label: null }];
+                        const __composite = [
+                          { type: null, label: null, onClick: null }
+                        ];
                         __composite["0"]["type"] = "item";
                         __composite["0"]["label"] = "Download";
+                        __composite["0"]["onClick"] = async (rowKey, row) => {
+                          const $steps = {};
+                          $steps["goToPage"] = true
+                            ? (() => {
+                                const actionArgs = {
+                                  destination: __wrapUserFunction(
+                                    {
+                                      type: "InteractionArgLoc",
+                                      actionName: "navigation",
+                                      interactionUuid: "Cu42Nq-oH",
+                                      componentUuid: "S-EPZS57Iq32",
+                                      argName: "destination"
+                                    },
+                                    () =>
+                                      (() => {
+                                        try {
+                                          return $ctx.bankReport[0].url[0];
+                                        } catch (e) {
+                                          if (
+                                            e instanceof TypeError ||
+                                            e?.plasmicType ===
+                                              "PlasmicUndefinedDataError"
+                                          ) {
+                                            return undefined;
+                                          }
+                                          throw e;
+                                        }
+                                      })()
+                                  )
+                                };
+                                return __wrapUserFunction(
+                                  {
+                                    type: "InteractionLoc",
+                                    actionName: "navigation",
+                                    interactionUuid: "Cu42Nq-oH",
+                                    componentUuid: "S-EPZS57Iq32"
+                                  },
+                                  () =>
+                                    (({ destination }) => {
+                                      __nextRouter?.push(destination);
+                                    })?.apply(null, [actionArgs]),
+                                  actionArgs
+                                );
+                              })()
+                            : undefined;
+                          if (
+                            typeof $steps["goToPage"] === "object" &&
+                            typeof $steps["goToPage"].then === "function"
+                          ) {
+                            $steps["goToPage"] = await __wrapUserPromise(
+                              {
+                                type: "InteractionLoc",
+                                actionName: "navigation",
+                                interactionUuid: "Cu42Nq-oH",
+                                componentUuid: "S-EPZS57Iq32"
+                              },
+                              $steps["goToPage"]
+                            );
+                          }
+                        };
                         return __composite;
                       })()}
                       type={"list" as const}
