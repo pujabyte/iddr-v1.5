@@ -41,6 +41,8 @@ import Navbar from "../../Navbar"; // plasmic-import: ThJz7UjPOLc/component
 import { Reveal } from "@plasmicpkgs/react-awesome-reveal"; // plasmic-import: R6s1FdhksG/codeComponent
 import Button2 from "../../Button2"; // plasmic-import: R7FQakg198I/component
 import NetworkCard from "../../NetworkCard"; // plasmic-import: DybXCSmk6J/component
+import { DataProvider } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import: D4RbnlpRXg3/codeComponent
+import { RichList } from "@plasmicpkgs/plasmic-rich-components"; // plasmic-import: Hh2OL1EveIF/codeComponent
 import { Embed } from "@plasmicpkgs/plasmic-basic-components"; // plasmic-import: PKldDYkH42/codeComponent
 import MenuOverlay from "../../MenuOverlay"; // plasmic-import: l7JCXcEFvGg/component
 
@@ -48,6 +50,7 @@ import { useScreenVariants as useScreenVariantsvWlfn14Jm89In } from "./PlasmicGl
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_iddr.module.css"; // plasmic-import: dJqK6LEBeKixAKagJBAmzL/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: S-EPZS57Iq32/css
 
@@ -81,6 +84,9 @@ export type PlasmicHomepage__OverridesType = {
   desc2?: p.Flex<"div">;
   desc3?: p.Flex<"div">;
   desc4?: p.Flex<"div">;
+  title3?: p.Flex<"div">;
+  dataProvider?: p.Flex<typeof DataProvider>;
+  dataList?: p.Flex<typeof RichList>;
   title2?: p.Flex<"div">;
   embedHtml?: p.Flex<typeof Embed>;
   cmc?: p.Flex<"a"> & Partial<LinkProps>;
@@ -167,6 +173,7 @@ function PlasmicHomepage__RenderFunc(props: {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
+            plasmic_antd_5_hostless_css.plasmic_tokens,
             sty.root
           )}
         >
@@ -432,7 +439,7 @@ function PlasmicHomepage__RenderFunc(props: {
           </div>
           <div
             className={classNames(projectcss.all, sty.freeBox__aNv5A)}
-            id={"about" as const}
+            id={"contract" as const}
           >
             <div className={classNames(projectcss.all, sty.freeBox__c3I2J)}>
               <p.Stack
@@ -999,6 +1006,117 @@ function PlasmicHomepage__RenderFunc(props: {
             </div>
           </div>
           <div
+            className={classNames(projectcss.all, sty.freeBox__yYrZu)}
+            id={"team" as const}
+          >
+            <div className={classNames(projectcss.all, sty.freeBox__adpNo)}>
+              <Reveal
+                className={classNames("__wab_instance", sty.reveal__ifIpE)}
+                direction={"up" as const}
+                triggerOnce={true}
+              >
+                {true ? (
+                  <p.Stack
+                    as={"div"}
+                    data-plasmic-name={"title3"}
+                    data-plasmic-override={overrides.title3}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.title3)}
+                  >
+                    <h2
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h2,
+                        projectcss.__wab_text,
+                        sty.h2__n0USz
+                      )}
+                    >
+                      {"Laporan Bulanan Bank"}
+                    </h2>
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__aE9DA
+                      )}
+                    >
+                      {"Laporan Bulanan Bank Indonesia Digital Rupiah"}
+                    </h6>
+                  </p.Stack>
+                ) : null}
+              </Reveal>
+              <DataProvider
+                data-plasmic-name={"dataProvider"}
+                data-plasmic-override={overrides.dataProvider}
+                className={classNames("__wab_instance", sty.dataProvider)}
+                data={[
+                  {
+                    id: "1",
+                    desc: "Indonesia Digital Rupiah Bank Report - May 2023",
+                    url: ["https://www.fillmurray.com/200/300"]
+                  },
+                  {
+                    id: "2",
+                    desc: "Indonesia Digital Rupiah Bank Report - Jun 2023",
+                    url: ["https://www.placecage.com/200/300"]
+                  }
+                ]}
+                name={"bankReport" as const}
+              >
+                <ph.DataCtxReader>
+                  {$ctx => (
+                    <RichList
+                      data-plasmic-name={"dataList"}
+                      data-plasmic-override={overrides.dataList}
+                      bordered={false}
+                      className={classNames("__wab_instance", sty.dataList)}
+                      content={(() => {
+                        const __composite = [
+                          { key: "id", fieldId: null, role: "content" }
+                        ];
+                        __composite["0"]["fieldId"] = "desc";
+                        return __composite;
+                      })()}
+                      data={(() => {
+                        try {
+                          return $ctx.bankReport;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      image={(() => {
+                        const __composite = { fieldId: null, expr: null };
+                        __composite["fieldId"] = "";
+                        __composite["expr"] = (currentItem, currentValue) => {
+                          return "https://iddr-dev.vercel.app/plasmic/iddr/images/google-docs-svgrepo-com.svg";
+                        };
+                        return __composite;
+                      })()}
+                      linkTo={currentItem => {
+                        return $ctx.bankReport[0].url;
+                      }}
+                      pagination={true}
+                      rowActions={(() => {
+                        const __composite = [{ type: null, label: null }];
+                        __composite["0"]["type"] = "item";
+                        __composite["0"]["label"] = "Download";
+                        return __composite;
+                      })()}
+                      type={"list" as const}
+                    />
+                  )}
+                </ph.DataCtxReader>
+              </DataProvider>
+            </div>
+          </div>
+          <div
             className={classNames(projectcss.all, sty.freeBox__dAw1O)}
             id={"contact" as const}
           >
@@ -1147,7 +1265,10 @@ function PlasmicHomepage__RenderFunc(props: {
                   try {
                     return $state.navbar.isMenuOpen;
                   } catch (e) {
-                    if (e instanceof TypeError) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
                       return true;
                     }
                     throw e;
@@ -1157,7 +1278,10 @@ function PlasmicHomepage__RenderFunc(props: {
                   try {
                     return $state.navbar.isMenuOpen;
                   } catch (e) {
-                    if (e instanceof TypeError) {
+                    if (
+                      e instanceof TypeError ||
+                      e?.plasmicType === "PlasmicUndefinedDataError"
+                    ) {
                       return true;
                     }
                     throw e;
@@ -1679,6 +1803,9 @@ const PlasmicDescendants = {
     "desc2",
     "desc3",
     "desc4",
+    "title3",
+    "dataProvider",
+    "dataList",
     "title2",
     "embedHtml",
     "cmc",
@@ -1693,6 +1820,9 @@ const PlasmicDescendants = {
   desc2: ["desc2"],
   desc3: ["desc3"],
   desc4: ["desc4"],
+  title3: ["title3"],
+  dataProvider: ["dataProvider", "dataList"],
+  dataList: ["dataList"],
   title2: ["title2"],
   embedHtml: ["embedHtml"],
   cmc: ["cmc"],
@@ -1712,6 +1842,9 @@ type NodeDefaultElementType = {
   desc2: "div";
   desc3: "div";
   desc4: "div";
+  title3: "div";
+  dataProvider: typeof DataProvider;
+  dataList: typeof RichList;
   title2: "div";
   embedHtml: typeof Embed;
   cmc: "a";
@@ -1787,6 +1920,9 @@ export const PlasmicHomepage = Object.assign(
     desc2: makeNodeComponent("desc2"),
     desc3: makeNodeComponent("desc3"),
     desc4: makeNodeComponent("desc4"),
+    title3: makeNodeComponent("title3"),
+    dataProvider: makeNodeComponent("dataProvider"),
+    dataList: makeNodeComponent("dataList"),
     title2: makeNodeComponent("title2"),
     embedHtml: makeNodeComponent("embedHtml"),
     cmc: makeNodeComponent("cmc"),

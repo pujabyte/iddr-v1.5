@@ -41,6 +41,7 @@ import { useScreenVariants as useScreenVariantsvWlfn14Jm89In } from "./PlasmicGl
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_iddr.module.css"; // plasmic-import: dJqK6LEBeKixAKagJBAmzL/projectcss
 import sty from "./PlasmicNavbar.module.css"; // plasmic-import: ThJz7UjPOLc/css
 
@@ -152,6 +153,7 @@ function PlasmicNavbar__RenderFunc(props: {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
+        plasmic_antd_5_hostless_css.plasmic_tokens,
         sty.navbar
       )}
     >
@@ -194,57 +196,9 @@ function PlasmicNavbar__RenderFunc(props: {
               data-plasmic-override={overrides.mnItem}
               className={classNames(projectcss.all, projectcss.a, sty.mnItem)}
               component={Link}
+              href={"#home" as const}
               onClick={async event => {
                 const $steps = {};
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: __wrapUserFunction(
-                          {
-                            type: "InteractionArgLoc",
-                            actionName: "customFunction",
-                            interactionUuid: "vEzFoSXOM",
-                            componentUuid: "ThJz7UjPOLc",
-                            argName: "customFunction"
-                          },
-                          () => () => {
-                            return document
-                              .querySelector(".home")
-                              .scrollIntoView({
-                                behavior: "smooth"
-                              });
-                          }
-                        )
-                      };
-                      return __wrapUserFunction(
-                        {
-                          type: "InteractionLoc",
-                          actionName: "customFunction",
-                          interactionUuid: "vEzFoSXOM",
-                          componentUuid: "ThJz7UjPOLc"
-                        },
-                        () =>
-                          (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]),
-                        actionArgs
-                      );
-                    })()
-                  : undefined;
-                if (
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await __wrapUserPromise(
-                    {
-                      type: "InteractionLoc",
-                      actionName: "customFunction",
-                      interactionUuid: "vEzFoSXOM",
-                      componentUuid: "ThJz7UjPOLc"
-                    },
-                    $steps["runCode"]
-                  );
-                }
               }}
               platform={"nextjs"}
             >
@@ -263,57 +217,9 @@ function PlasmicNavbar__RenderFunc(props: {
               data-plasmic-override={overrides.mnItem2}
               className={classNames(projectcss.all, projectcss.a, sty.mnItem2)}
               component={Link}
+              href={"#about" as const}
               onClick={async event => {
                 const $steps = {};
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: __wrapUserFunction(
-                          {
-                            type: "InteractionArgLoc",
-                            actionName: "customFunction",
-                            interactionUuid: "Gva-tJ9UB",
-                            componentUuid: "ThJz7UjPOLc",
-                            argName: "customFunction"
-                          },
-                          () => () => {
-                            return document
-                              .querySelector(".about")
-                              .scrollIntoView({
-                                behavior: "smooth"
-                              });
-                          }
-                        )
-                      };
-                      return __wrapUserFunction(
-                        {
-                          type: "InteractionLoc",
-                          actionName: "customFunction",
-                          interactionUuid: "Gva-tJ9UB",
-                          componentUuid: "ThJz7UjPOLc"
-                        },
-                        () =>
-                          (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]),
-                        actionArgs
-                      );
-                    })()
-                  : undefined;
-                if (
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await __wrapUserPromise(
-                    {
-                      type: "InteractionLoc",
-                      actionName: "customFunction",
-                      interactionUuid: "Gva-tJ9UB",
-                      componentUuid: "ThJz7UjPOLc"
-                    },
-                    $steps["runCode"]
-                  );
-                }
               }}
               platform={"nextjs"}
             >
@@ -332,57 +238,9 @@ function PlasmicNavbar__RenderFunc(props: {
               data-plasmic-override={overrides.mnItem3}
               className={classNames(projectcss.all, projectcss.a, sty.mnItem3)}
               component={Link}
+              href={"#team" as const}
               onClick={async event => {
                 const $steps = {};
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: __wrapUserFunction(
-                          {
-                            type: "InteractionArgLoc",
-                            actionName: "customFunction",
-                            interactionUuid: "obIMNcdLp",
-                            componentUuid: "ThJz7UjPOLc",
-                            argName: "customFunction"
-                          },
-                          () => () => {
-                            return document
-                              .querySelector(".team")
-                              .scrollIntoView({
-                                behavior: "smooth"
-                              });
-                          }
-                        )
-                      };
-                      return __wrapUserFunction(
-                        {
-                          type: "InteractionLoc",
-                          actionName: "customFunction",
-                          interactionUuid: "obIMNcdLp",
-                          componentUuid: "ThJz7UjPOLc"
-                        },
-                        () =>
-                          (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]),
-                        actionArgs
-                      );
-                    })()
-                  : undefined;
-                if (
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await __wrapUserPromise(
-                    {
-                      type: "InteractionLoc",
-                      actionName: "customFunction",
-                      interactionUuid: "obIMNcdLp",
-                      componentUuid: "ThJz7UjPOLc"
-                    },
-                    $steps["runCode"]
-                  );
-                }
               }}
               platform={"nextjs"}
             >
@@ -401,57 +259,9 @@ function PlasmicNavbar__RenderFunc(props: {
               data-plasmic-override={overrides.mnItem4}
               className={classNames(projectcss.all, projectcss.a, sty.mnItem4)}
               component={Link}
+              href={"#contact" as const}
               onClick={async event => {
                 const $steps = {};
-                $steps["runCode"] = true
-                  ? (() => {
-                      const actionArgs = {
-                        customFunction: __wrapUserFunction(
-                          {
-                            type: "InteractionArgLoc",
-                            actionName: "customFunction",
-                            interactionUuid: "TytyGu10h",
-                            componentUuid: "ThJz7UjPOLc",
-                            argName: "customFunction"
-                          },
-                          () => () => {
-                            return document
-                              .querySelector(".contact")
-                              .scrollIntoView({
-                                behavior: "smooth"
-                              });
-                          }
-                        )
-                      };
-                      return __wrapUserFunction(
-                        {
-                          type: "InteractionLoc",
-                          actionName: "customFunction",
-                          interactionUuid: "TytyGu10h",
-                          componentUuid: "ThJz7UjPOLc"
-                        },
-                        () =>
-                          (({ customFunction }) => {
-                            return customFunction();
-                          })?.apply(null, [actionArgs]),
-                        actionArgs
-                      );
-                    })()
-                  : undefined;
-                if (
-                  typeof $steps["runCode"] === "object" &&
-                  typeof $steps["runCode"].then === "function"
-                ) {
-                  $steps["runCode"] = await __wrapUserPromise(
-                    {
-                      type: "InteractionLoc",
-                      actionName: "customFunction",
-                      interactionUuid: "TytyGu10h",
-                      componentUuid: "ThJz7UjPOLc"
-                    },
-                    $steps["runCode"]
-                  );
-                }
               }}
               platform={"nextjs"}
             >

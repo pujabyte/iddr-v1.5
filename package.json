@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@plasmicapp/cli": "^0.1.286",
-    "@plasmicapp/react-web": "^0.2.220",
+    "@ant-design/icons": "^5.1.4",
+    "@ant-design/pro-components": "^2.5.5",
+    "@plasmicapp/cli": "^0.1.291",
+    "@plasmicapp/react-web": "^0.2.224",
+    "@plasmicpkgs/antd5": "^0.0.77",
     "@plasmicpkgs/plasmic-basic-components": "^0.0.154",
     "@plasmicpkgs/plasmic-embed-css": "^0.1.128",
     "@plasmicpkgs/plasmic-nav": "^0.0.114",
+    "@plasmicpkgs/plasmic-rich-components": "^1.0.91",
     "@plasmicpkgs/react-awesome-reveal": "^3.8.144",
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",

@@ -39,6 +39,7 @@ import {
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic_antd_5_hostless.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic_iddr.module.css"; // plasmic-import: dJqK6LEBeKixAKagJBAmzL/projectcss
 import sty from "./PlasmicNetworkCard.module.css"; // plasmic-import: DybXCSmk6J/css
 
@@ -115,6 +116,7 @@ function PlasmicNetworkCard__RenderFunc(props: {
           projectcss.plasmic_default_styles,
           projectcss.plasmic_mixins,
           projectcss.plasmic_tokens,
+          plasmic_antd_5_hostless_css.plasmic_tokens,
           sty.root
         )}
       >
