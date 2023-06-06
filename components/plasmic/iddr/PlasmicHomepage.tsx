@@ -1053,6 +1053,26 @@ function PlasmicHomepage__RenderFunc(props: {
                 data={[
                   {
                     id: "1",
+                    desc: "Indonesia Digital Rupiah Bank Report - Jan 2023",
+                    url: ["https://www.fillmurray.com/200/300"]
+                  },
+                  {
+                    id: "1",
+                    desc: "Indonesia Digital Rupiah Bank Report - Feb 2023",
+                    url: ["https://www.fillmurray.com/200/300"]
+                  },
+                  {
+                    id: "1",
+                    desc: "Indonesia Digital Rupiah Bank Report - Mar 2023",
+                    url: ["https://www.fillmurray.com/200/300"]
+                  },
+                  {
+                    id: "1",
+                    desc: "Indonesia Digital Rupiah Bank Report - Apr 2023",
+                    url: ["https://www.fillmurray.com/200/300"]
+                  },
+                  {
+                    id: "1",
                     desc: "Indonesia Digital Rupiah Bank Report - May 2023",
                     url: ["https://www.fillmurray.com/200/300"]
                   },
@@ -1069,7 +1089,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     <RichList
                       data-plasmic-name={"dataList"}
                       data-plasmic-override={overrides.dataList}
-                      bordered={false}
+                      bordered={true}
                       className={classNames("__wab_instance", sty.dataList)}
                       content={(() => {
                         const __composite = [
@@ -1091,17 +1111,19 @@ function PlasmicHomepage__RenderFunc(props: {
                           throw e;
                         }
                       })()}
+                      hideSearch={true}
                       image={(() => {
                         const __composite = { fieldId: null, expr: null };
                         __composite["fieldId"] = "";
                         __composite["expr"] = (currentItem, currentValue) => {
-                          return "https://iddr-dev-wheat.vercel.app/plasmic/iddr/images/document-icon.png";
+                          return "https://iddr-dev-wheat.vercel.app/plasmic/iddr/images/documentIconpng.png";
                         };
                         return __composite;
                       })()}
                       linkTo={currentItem => {
-                        return $ctx.bankReport[0].url[0];
+                        return currentItem.url[0];
                       }}
+                      pageSize={5 as const}
                       pagination={true}
                       rowActions={(() => {
                         const __composite = [{ type: null, label: null }];
@@ -1114,25 +1136,6 @@ function PlasmicHomepage__RenderFunc(props: {
                   )}
                 </ph.DataCtxReader>
               </DataProvider>
-              {true ? (
-                <p.PlasmicImg
-                  alt={""}
-                  className={classNames(sty.img___0QD8P)}
-                  displayHeight={"auto" as const}
-                  displayMaxHeight={"none" as const}
-                  displayMaxWidth={"100%" as const}
-                  displayMinHeight={"0" as const}
-                  displayMinWidth={"0" as const}
-                  displayWidth={"auto" as const}
-                  loading={"lazy" as const}
-                  src={{
-                    src: "/plasmic/iddr/images/documentIconpng.png",
-                    fullWidth: 32,
-                    fullHeight: 32,
-                    aspectRatio: undefined
-                  }}
-                />
-              ) : null}
             </div>
           </div>
           <div

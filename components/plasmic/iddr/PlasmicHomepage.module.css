@@ -1542,18 +1542,6 @@
   min-width: 0;
   padding: 16px;
 }
-.img___0QD8P {
-  position: relative;
-  object-fit: cover;
-  max-width: 100%;
-  display: inline-block !important;
-}
-.img___0QD8P > picture > img {
-  object-fit: cover;
-}
-.img___0QD8P > :global(.__wab_img-spacer) > img {
-  object-fit: cover;
-}
 .freeBox__dAw1O {
   display: flex;
   position: relative;
