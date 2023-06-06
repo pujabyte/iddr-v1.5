@@ -1095,12 +1095,12 @@ function PlasmicHomepage__RenderFunc(props: {
                         const __composite = { fieldId: null, expr: null };
                         __composite["fieldId"] = "";
                         __composite["expr"] = (currentItem, currentValue) => {
-                          return "https://iddr-dev.vercel.app/plasmic/iddr/images/google-docs-svgrepo-com.svg";
+                          return "https://iddr-dev-wheat.vercel.app/plasmic/iddr/images/document-icon.png";
                         };
                         return __composite;
                       })()}
                       linkTo={currentItem => {
-                        return $ctx.bankReport[0].url;
+                        return $ctx.bankReport[0].url[0];
                       }}
                       pagination={true}
                       rowActions={(() => {
