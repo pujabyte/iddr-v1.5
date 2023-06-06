@@ -1093,9 +1093,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       className={classNames("__wab_instance", sty.dataList)}
                       content={(() => {
                         const __composite = [
-                          { key: "id", fieldId: null, role: "content" }
+                          { role: "content", fieldId: null }
                         ];
-                        __composite["0"]["fieldId"] = "desc";
+                        __composite["0"]["fieldId"] = "url";
                         return __composite;
                       })()}
                       data={(() => {
@@ -1121,19 +1121,13 @@ function PlasmicHomepage__RenderFunc(props: {
                         return __composite;
                       })()}
                       linkTo={currentItem => {
-                        return `/`;
+                        return currentItem.url[0];
                       }}
                       pageSize={5 as const}
                       pagination={true}
-                      rowActions={(() => {
-                        const __composite = [
-                          { type: null, label: null, onClick: null }
-                        ];
-                        __composite["0"]["type"] = "item";
-                        __composite["0"]["label"] = "Download";
-                        __composite["0"]["onClick"] = async (rowKey, row) => {
-                          const $steps = {};
-                        };
+                      title={(() => {
+                        const __composite = [{ role: "title", fieldId: null }];
+                        __composite["0"]["fieldId"] = "desc";
                         return __composite;
                       })()}
                       type={"list" as const}
