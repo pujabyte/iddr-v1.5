@@ -1052,33 +1052,39 @@ function PlasmicHomepage__RenderFunc(props: {
                 className={classNames("__wab_instance", sty.dataProvider)}
                 data={[
                   {
-                    id: "1",
+                    id: 1,
                     desc: "Indonesia Digital Rupiah Bank Report - Jan 2023",
+                    date: "Last Updated, 1 January 2023",
                     url: ["https://www.fillmurray.com/200/300"]
                   },
                   {
-                    id: "1",
+                    id: 2,
                     desc: "Indonesia Digital Rupiah Bank Report - Feb 2023",
+                    date: "Last Updated, 1 February 2023",
                     url: ["https://www.fillmurray.com/200/300"]
                   },
                   {
-                    id: "1",
+                    id: 3,
                     desc: "Indonesia Digital Rupiah Bank Report - Mar 2023",
+                    date: "Last Updated, 1 March 2023",
                     url: ["https://www.fillmurray.com/200/300"]
                   },
                   {
                     id: "1",
                     desc: "Indonesia Digital Rupiah Bank Report - Apr 2023",
+                    date: "Last Updated, 1 April 2023",
                     url: ["https://www.fillmurray.com/200/300"]
                   },
                   {
                     id: "1",
                     desc: "Indonesia Digital Rupiah Bank Report - May 2023",
+                    date: "Last Updated, 1 May 2023",
                     url: ["https://www.fillmurray.com/200/300"]
                   },
                   {
                     id: "2",
                     desc: "Indonesia Digital Rupiah Bank Report - Jun 2023",
+                    date: "Last Updated, 1 June 2023",
                     url: ["https://www.placecage.com/200/300"]
                   }
                 ]}
@@ -1089,13 +1095,14 @@ function PlasmicHomepage__RenderFunc(props: {
                     <RichList
                       data-plasmic-name={"dataList"}
                       data-plasmic-override={overrides.dataList}
-                      bordered={true}
+                      bordered={false}
                       className={classNames("__wab_instance", sty.dataList)}
                       content={(() => {
                         const __composite = [
-                          { role: "content", fieldId: null }
+                          { role: "content", fieldId: null, isHidden: null }
                         ];
-                        __composite["0"]["fieldId"] = "url";
+                        __composite["0"]["fieldId"] = "date";
+                        __composite["0"]["isHidden"] = false;
                         return __composite;
                       })()}
                       data={(() => {
@@ -1125,6 +1132,11 @@ function PlasmicHomepage__RenderFunc(props: {
                       }}
                       pageSize={5 as const}
                       pagination={true}
+                      rowActions={(() => {
+                        const __composite = [{ type: "item", label: null }];
+                        __composite["0"]["label"] = "Download";
+                        return __composite;
+                      })()}
                       title={(() => {
                         const __composite = [{ role: "title", fieldId: null }];
                         __composite["0"]["fieldId"] = "desc";
