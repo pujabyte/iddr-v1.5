@@ -129,6 +129,19 @@
   position: relative;
   padding-bottom: 0px;
 }
+.mnItem5 {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+}
+.text__ivO7D {
+  position: relative;
+  padding-bottom: 0px;
+}
 .mnItem4 {
   position: relative;
   display: flex;

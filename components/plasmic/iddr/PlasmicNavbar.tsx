@@ -73,6 +73,7 @@ export type PlasmicNavbar__OverridesType = {
   mnItem?: p.Flex<"a"> & Partial<LinkProps>;
   mnItem2?: p.Flex<"a"> & Partial<LinkProps>;
   mnItem3?: p.Flex<"a"> & Partial<LinkProps>;
+  mnItem5?: p.Flex<"a"> & Partial<LinkProps>;
   mnItem4?: p.Flex<"a"> & Partial<LinkProps>;
   cmc?: p.Flex<"a"> & Partial<LinkProps>;
   telegram?: p.Flex<"a"> & Partial<LinkProps>;
@@ -252,6 +253,27 @@ function PlasmicNavbar__RenderFunc(props: {
                 )}
               >
                 {"Tim"}
+              </div>
+            </p.PlasmicLink>
+            <p.PlasmicLink
+              data-plasmic-name={"mnItem5"}
+              data-plasmic-override={overrides.mnItem5}
+              className={classNames(projectcss.all, projectcss.a, sty.mnItem5)}
+              component={Link}
+              href={"#bank" as const}
+              onClick={async event => {
+                const $steps = {};
+              }}
+              platform={"nextjs"}
+            >
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__ivO7D
+                )}
+              >
+                {"Laporan Bank"}
               </div>
             </p.PlasmicLink>
             <p.PlasmicLink
@@ -444,16 +466,18 @@ const PlasmicDescendants = {
     "mnItem",
     "mnItem2",
     "mnItem3",
+    "mnItem5",
     "mnItem4",
     "cmc",
     "telegram",
     "twitter"
   ],
   img: ["img"],
-  menus: ["menus", "mnItem", "mnItem2", "mnItem3", "mnItem4"],
+  menus: ["menus", "mnItem", "mnItem2", "mnItem3", "mnItem5", "mnItem4"],
   mnItem: ["mnItem"],
   mnItem2: ["mnItem2"],
   mnItem3: ["mnItem3"],
+  mnItem5: ["mnItem5"],
   mnItem4: ["mnItem4"],
   cmc: ["cmc"],
   telegram: ["telegram"],
@@ -469,6 +493,7 @@ type NodeDefaultElementType = {
   mnItem: "a";
   mnItem2: "a";
   mnItem3: "a";
+  mnItem5: "a";
   mnItem4: "a";
   cmc: "a";
   telegram: "a";
@@ -540,6 +565,7 @@ export const PlasmicNavbar = Object.assign(
     mnItem: makeNodeComponent("mnItem"),
     mnItem2: makeNodeComponent("mnItem2"),
     mnItem3: makeNodeComponent("mnItem3"),
+    mnItem5: makeNodeComponent("mnItem5"),
     mnItem4: makeNodeComponent("mnItem4"),
     cmc: makeNodeComponent("cmc"),
     telegram: makeNodeComponent("telegram"),
