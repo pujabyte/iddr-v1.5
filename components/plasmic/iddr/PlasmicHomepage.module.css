@@ -1536,9 +1536,10 @@
 .dataList:global(.__wab_instance) {
   width: 100%;
   max-height: 100%;
-  max-width: 100%;
+  max-width: 800px;
   object-fit: cover;
   position: relative;
+  background: none;
   min-width: 0;
   padding: 16px;
 }

@@ -1132,51 +1132,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       }}
                       pageSize={5 as const}
                       pagination={true}
-                      rowActions={(() => {
-                        const __composite = [
-                          { type: null, label: null, onClick: null }
-                        ];
-                        __composite["0"]["type"] = "item";
-                        __composite["0"]["label"] = "Download";
-                        __composite["0"]["onClick"] = async (rowKey, row) => {
-                          const $steps = {};
-                          $steps["runInteractionProp"] = true
-                            ? (() => {
-                                const actionArgs = {};
-                                return __wrapUserFunction(
-                                  {
-                                    type: "InteractionLoc",
-                                    actionName: "invokeEventHandler",
-                                    interactionUuid: "b1r9ic6pM",
-                                    componentUuid: "S-EPZS57Iq32"
-                                  },
-                                  () =>
-                                    (({ eventRef, args }) => {
-                                      return eventRef?.(...(args ?? []));
-                                    })?.apply(null, [actionArgs]),
-                                  actionArgs
-                                );
-                              })()
-                            : undefined;
-                          if (
-                            typeof $steps["runInteractionProp"] === "object" &&
-                            typeof $steps["runInteractionProp"].then ===
-                              "function"
-                          ) {
-                            $steps["runInteractionProp"] =
-                              await __wrapUserPromise(
-                                {
-                                  type: "InteractionLoc",
-                                  actionName: "invokeEventHandler",
-                                  interactionUuid: "b1r9ic6pM",
-                                  componentUuid: "S-EPZS57Iq32"
-                                },
-                                $steps["runInteractionProp"]
-                              );
-                          }
-                        };
-                        return __composite;
-                      })()}
+                      rowActions={[]}
                       title={(() => {
                         const __composite = [{ role: "title", fieldId: null }];
                         __composite["0"]["fieldId"] = "desc";
