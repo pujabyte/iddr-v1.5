@@ -693,6 +693,34 @@
   margin-bottom: 32px;
   min-width: 0;
 }
+.freeBox__z17C {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  padding-bottom: 32px;
+  min-width: 0;
+}
+.h3 {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+}
+.text__cymz {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  line-height: 2;
+  color: #626e99;
+  font-size: 14px;
+  min-width: 0;
+}
 .freeBox__lZfc9 {
   display: flex;
   position: relative;

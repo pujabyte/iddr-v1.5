@@ -79,6 +79,7 @@ export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
   pageMetadataOverride?: p.Flex<typeof PlasmicHead>;
   navbar?: p.Flex<typeof Navbar>;
+  h3?: p.Flex<"h3">;
   title?: p.Flex<"div">;
   desc?: p.Flex<"div">;
   desc2?: p.Flex<"div">;
@@ -487,6 +488,36 @@ function PlasmicHomepage__RenderFunc(props: {
                             "Indonesia Digital Rupiah memberikan fleksibilitas dan ketersediaan melalui integrasi di berbagai platform blockchain terkemuka"
                           }
                         </div>
+                        {true ? (
+                          <div
+                            className={classNames(
+                              projectcss.all,
+                              sty.freeBox__z17C
+                            )}
+                          >
+                            <h3
+                              data-plasmic-name={"h3"}
+                              data-plasmic-override={overrides.h3}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h3,
+                                projectcss.__wab_text,
+                                sty.h3
+                              )}
+                            >
+                              {"300.000.000 IDDR"}
+                            </h3>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.__wab_text,
+                                sty.text__cymz
+                              )}
+                            >
+                              {"Circulating supply"}
+                            </div>
+                          </div>
+                        ) : null}
                         {true ? (
                           <p.Stack
                             as={"div"}
@@ -1827,6 +1858,7 @@ const PlasmicDescendants = {
     "root",
     "pageMetadataOverride",
     "navbar",
+    "h3",
     "title",
     "desc",
     "desc2",
@@ -1844,6 +1876,7 @@ const PlasmicDescendants = {
   ],
   pageMetadataOverride: ["pageMetadataOverride"],
   navbar: ["navbar"],
+  h3: ["h3"],
   title: ["title"],
   desc: ["desc"],
   desc2: ["desc2"],
@@ -1866,6 +1899,7 @@ type NodeDefaultElementType = {
   root: "div";
   pageMetadataOverride: typeof PlasmicHead;
   navbar: typeof Navbar;
+  h3: "h3";
   title: "div";
   desc: "div";
   desc2: "div";
@@ -1944,6 +1978,7 @@ export const PlasmicHomepage = Object.assign(
     // Helper components rendering sub-elements
     pageMetadataOverride: makeNodeComponent("pageMetadataOverride"),
     navbar: makeNodeComponent("navbar"),
+    h3: makeNodeComponent("h3"),
     title: makeNodeComponent("title"),
     desc: makeNodeComponent("desc"),
     desc2: makeNodeComponent("desc2"),
