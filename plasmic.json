@@ -39,7 +39,8 @@
           "displayName": "hostless-reveal",
           "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "7nJ7UcFmq9UzB6eXfC5z4a",
@@ -59,7 +60,8 @@
           "displayName": "hostless-plasmic-navigation-bar",
           "componentImportPath": "@plasmicpkgs/plasmic-nav"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "caTPwKxj5ZrD9LQ7DMdK4Z",
@@ -109,7 +111,8 @@
           "displayName": "hostless-side-effect",
           "componentImportPath": "@plasmicpkgs/plasmic-basic-components"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "dJqK6LEBeKixAKagJBAmzL",
@@ -457,7 +460,8 @@
             "importPath": "@plasmicpkgs/plasmic-rich-components"
           }
         }
-      ]
+      ],
+      "jsBundleThemes": []
     },
     {
       "projectId": "ohDidvG9XsCeFumugENU3J",
@@ -779,7 +783,8 @@
           "displayName": "plasmic-antd5-rate",
           "componentImportPath": "@plasmicpkgs/antd5/skinny/registerRate"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {
