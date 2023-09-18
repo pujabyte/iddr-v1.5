@@ -51,6 +51,8 @@ import CmcsvgIcon from "./icons/PlasmicIcon__Cmcsvg"; // plasmic-import: n_1Fj4Q
 import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: V54Kju9r17/icon
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: lDkdlle9aD/icon
 
+createPlasmicElementProxy;
+
 export type PlasmicNavbar__VariantMembers = {};
 export type PlasmicNavbar__VariantsArgs = {};
 type VariantPropType = keyof PlasmicNavbar__VariantsArgs;
@@ -86,14 +88,6 @@ export interface DefaultNavbarProps {
   className?: string;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
-
 function useNextRouter() {
   try {
     return useRouter();
@@ -108,22 +102,22 @@ function PlasmicNavbar__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+
   const $props = {
     ...args,
     ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = ph.useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
 
-  const [$queries, setDollarQueries] = React.useState({});
-
-  const stateSpecs = React.useMemo(
+  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "isMenuOpen",
@@ -134,9 +128,14 @@ function PlasmicNavbar__RenderFunc(props: {
         onChangeProp: "onIsMenuOpenChange"
       }
     ],
-    [$props, $ctx]
+    [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsvWlfn14Jm89In()
@@ -169,13 +168,13 @@ function PlasmicNavbar__RenderFunc(props: {
             data-plasmic-override={overrides.img}
             alt={""}
             className={classNames(sty.img)}
-            displayHeight={"42px" as const}
-            displayMaxHeight={"none" as const}
-            displayMaxWidth={"100%" as const}
-            displayMinHeight={"0" as const}
-            displayMinWidth={"0" as const}
-            displayWidth={"auto" as const}
-            loading={"lazy" as const}
+            displayHeight={"42px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"auto"}
+            loading={"lazy"}
             src={{
               src: "/plasmic/iddr/images/iddrLandscape1Png.png",
               fullWidth: 904,
@@ -184,275 +183,217 @@ function PlasmicNavbar__RenderFunc(props: {
             }}
           />
         </p.PlasmicLink>
-        {(hasVariant(globalVariants, "screen", "mobileOnly") ? true : true) ? (
-          <p.Stack
-            as={"div"}
-            data-plasmic-name={"menus"}
-            data-plasmic-override={overrides.menus}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.menus)}
-          >
-            <p.PlasmicLink
-              data-plasmic-name={"mnItem"}
-              data-plasmic-override={overrides.mnItem}
-              className={classNames(projectcss.all, projectcss.a, sty.mnItem)}
-              component={Link}
-              href={"#home" as const}
-              onClick={async event => {
-                const $steps = {};
-              }}
-              platform={"nextjs"}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__doFl
-                )}
-              >
-                {"Beranda"}
-              </div>
-            </p.PlasmicLink>
-            <p.PlasmicLink
-              data-plasmic-name={"mnItem2"}
-              data-plasmic-override={overrides.mnItem2}
-              className={classNames(projectcss.all, projectcss.a, sty.mnItem2)}
-              component={Link}
-              href={"#about" as const}
-              onClick={async event => {
-                const $steps = {};
-              }}
-              platform={"nextjs"}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__diLvd
-                )}
-              >
-                {"Tentang"}
-              </div>
-            </p.PlasmicLink>
-            <p.PlasmicLink
-              data-plasmic-name={"mnItem3"}
-              data-plasmic-override={overrides.mnItem3}
-              className={classNames(projectcss.all, projectcss.a, sty.mnItem3)}
-              component={Link}
-              href={"#team" as const}
-              onClick={async event => {
-                const $steps = {};
-              }}
-              platform={"nextjs"}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__j8Gj
-                )}
-              >
-                {"Tim"}
-              </div>
-            </p.PlasmicLink>
-            <p.PlasmicLink
-              data-plasmic-name={"mnItem5"}
-              data-plasmic-override={overrides.mnItem5}
-              className={classNames(projectcss.all, projectcss.a, sty.mnItem5)}
-              component={Link}
-              href={"#bank" as const}
-              onClick={async event => {
-                const $steps = {};
-              }}
-              platform={"nextjs"}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ivO7D
-                )}
-              >
-                {"Laporan Bank"}
-              </div>
-            </p.PlasmicLink>
-            <p.PlasmicLink
-              data-plasmic-name={"mnItem4"}
-              data-plasmic-override={overrides.mnItem4}
-              className={classNames(projectcss.all, projectcss.a, sty.mnItem4)}
-              component={Link}
-              href={"#contact" as const}
-              onClick={async event => {
-                const $steps = {};
-              }}
-              platform={"nextjs"}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__iudxA
-                )}
-              >
-                {"Kontak"}
-              </div>
-            </p.PlasmicLink>
-          </p.Stack>
-        ) : null}
-        {(hasVariant(globalVariants, "screen", "mobileOnly") ? true : true) ? (
+        <p.Stack
+          as={"div"}
+          data-plasmic-name={"menus"}
+          data-plasmic-override={overrides.menus}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.menus)}
+        >
           <p.PlasmicLink
-            className={classNames(
-              projectcss.all,
-              projectcss.a,
-              sty.link__dInIj
-            )}
+            data-plasmic-name={"mnItem"}
+            data-plasmic-override={overrides.mnItem}
+            className={classNames(projectcss.all, projectcss.a, sty.mnItem)}
             component={Link}
+            href={"#home"}
             onClick={async event => {
               const $steps = {};
-              $steps["updateIsMenuOpen"] = true
-                ? (() => {
-                    const actionArgs = {
-                      variable: __wrapUserFunction(
-                        {
-                          type: "InteractionArgLoc",
-                          actionName: "updateVariable",
-                          interactionUuid: "LBkPAXwzI",
-                          componentUuid: "ThJz7UjPOLc",
-                          argName: "variable"
-                        },
-                        () => ({
-                          objRoot: $state,
-                          variablePath: ["isMenuOpen"]
-                        })
-                      ),
-                      operation: __wrapUserFunction(
-                        {
-                          type: "InteractionArgLoc",
-                          actionName: "updateVariable",
-                          interactionUuid: "LBkPAXwzI",
-                          componentUuid: "ThJz7UjPOLc",
-                          argName: "operation"
-                        },
-                        () => 4
-                      )
-                    };
-                    return __wrapUserFunction(
-                      {
-                        type: "InteractionLoc",
-                        actionName: "updateVariable",
-                        interactionUuid: "LBkPAXwzI",
-                        componentUuid: "ThJz7UjPOLc"
-                      },
-                      () =>
-                        (({ variable, value, startIndex, deleteCount }) => {
-                          if (!variable) {
-                            return;
-                          }
-                          const { objRoot, variablePath } = variable;
-
-                          const oldValue = p.get(objRoot, variablePath);
-                          p.set(objRoot, variablePath, !oldValue);
-                          return !oldValue;
-                        })?.apply(null, [actionArgs]),
-                      actionArgs
-                    );
-                  })()
-                : undefined;
-              if (
-                typeof $steps["updateIsMenuOpen"] === "object" &&
-                typeof $steps["updateIsMenuOpen"].then === "function"
-              ) {
-                $steps["updateIsMenuOpen"] = await __wrapUserPromise(
-                  {
-                    type: "InteractionLoc",
-                    actionName: "updateVariable",
-                    interactionUuid: "LBkPAXwzI",
-                    componentUuid: "ThJz7UjPOLc"
-                  },
-                  $steps["updateIsMenuOpen"]
-                );
-              }
             }}
             platform={"nextjs"}
           >
-            {(
-              hasVariant(globalVariants, "screen", "mobileOnly") ? true : true
-            ) ? (
-              <MenuSvgrepoComsvgIcon
-                className={classNames(projectcss.all, sty.svg__dMoHh)}
-                role={"img"}
-              />
-            ) : null}
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__doFl
+              )}
+            >
+              {"Beranda"}
+            </div>
           </p.PlasmicLink>
-        ) : null}
-        {(hasVariant(globalVariants, "screen", "mobileOnly") ? true : true) ? (
           <p.PlasmicLink
-            className={classNames(
-              projectcss.all,
-              projectcss.a,
-              sty.link__agVnM
-            )}
+            data-plasmic-name={"mnItem2"}
+            data-plasmic-override={overrides.mnItem2}
+            className={classNames(projectcss.all, projectcss.a, sty.mnItem2)}
             component={Link}
+            href={"#about"}
+            onClick={async event => {
+              const $steps = {};
+            }}
             platform={"nextjs"}
           >
-            <CloseBoldSvgrepoComsvgIcon
-              className={classNames(projectcss.all, sty.svg__al8He)}
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__diLvd
+              )}
+            >
+              {"Tentang"}
+            </div>
+          </p.PlasmicLink>
+          <p.PlasmicLink
+            data-plasmic-name={"mnItem3"}
+            data-plasmic-override={overrides.mnItem3}
+            className={classNames(projectcss.all, projectcss.a, sty.mnItem3)}
+            component={Link}
+            href={"#team"}
+            onClick={async event => {
+              const $steps = {};
+            }}
+            platform={"nextjs"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__j8Gj
+              )}
+            >
+              {"Tim"}
+            </div>
+          </p.PlasmicLink>
+          <p.PlasmicLink
+            data-plasmic-name={"mnItem5"}
+            data-plasmic-override={overrides.mnItem5}
+            className={classNames(projectcss.all, projectcss.a, sty.mnItem5)}
+            component={Link}
+            href={"#bank"}
+            onClick={async event => {
+              const $steps = {};
+            }}
+            platform={"nextjs"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__ivO7D
+              )}
+            >
+              {"Laporan Bank"}
+            </div>
+          </p.PlasmicLink>
+          <p.PlasmicLink
+            data-plasmic-name={"mnItem4"}
+            data-plasmic-override={overrides.mnItem4}
+            className={classNames(projectcss.all, projectcss.a, sty.mnItem4)}
+            component={Link}
+            href={"#contact"}
+            onClick={async event => {
+              const $steps = {};
+            }}
+            platform={"nextjs"}
+          >
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__iudxA
+              )}
+            >
+              {"Kontak"}
+            </div>
+          </p.PlasmicLink>
+        </p.Stack>
+        <p.PlasmicLink
+          className={classNames(projectcss.all, projectcss.a, sty.link__dInIj)}
+          component={Link}
+          onClick={async event => {
+            const $steps = {};
+            $steps["updateIsMenuOpen"] = true
+              ? (() => {
+                  const actionArgs = {
+                    variable: {
+                      objRoot: $state,
+                      variablePath: ["isMenuOpen"]
+                    },
+                    operation: 4
+                  };
+                  return (({ variable, value, startIndex, deleteCount }) => {
+                    if (!variable) {
+                      return;
+                    }
+                    const { objRoot, variablePath } = variable;
+
+                    const oldValue = p.get(objRoot, variablePath);
+                    p.set(objRoot, variablePath, !oldValue);
+                    return !oldValue;
+                  })?.apply(null, [actionArgs]);
+                })()
+              : undefined;
+            if (
+              typeof $steps["updateIsMenuOpen"] === "object" &&
+              typeof $steps["updateIsMenuOpen"].then === "function"
+            ) {
+              $steps["updateIsMenuOpen"] = await $steps["updateIsMenuOpen"];
+            }
+          }}
+          platform={"nextjs"}
+        >
+          <MenuSvgrepoComsvgIcon
+            className={classNames(projectcss.all, sty.svg__dMoHh)}
+            role={"img"}
+          />
+        </p.PlasmicLink>
+        <p.PlasmicLink
+          className={classNames(projectcss.all, projectcss.a, sty.link__agVnM)}
+          component={Link}
+          platform={"nextjs"}
+        >
+          <CloseBoldSvgrepoComsvgIcon
+            className={classNames(projectcss.all, sty.svg__al8He)}
+            role={"img"}
+          />
+        </p.PlasmicLink>
+        <p.Stack
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox__rxuxc)}
+        >
+          <p.PlasmicLink
+            data-plasmic-name={"cmc"}
+            data-plasmic-override={overrides.cmc}
+            className={classNames(projectcss.all, projectcss.a, sty.cmc)}
+            component={Link}
+            href={"https://coinmarketcap.com/currencies/idr-digital/"}
+            platform={"nextjs"}
+            target={"_blank"}
+          >
+            <CmcsvgIcon
+              className={classNames(projectcss.all, sty.svg__j8Hg9)}
               role={"img"}
             />
           </p.PlasmicLink>
-        ) : null}
-        {(hasVariant(globalVariants, "screen", "mobileOnly") ? true : true) ? (
-          <p.Stack
-            as={"div"}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.freeBox__rxuxc)}
+          <p.PlasmicLink
+            data-plasmic-name={"telegram"}
+            data-plasmic-override={overrides.telegram}
+            className={classNames(projectcss.all, projectcss.a, sty.telegram)}
+            component={Link}
+            href={"https://t.me/iddr_io"}
+            platform={"nextjs"}
+            target={"_blank"}
           >
-            <p.PlasmicLink
-              data-plasmic-name={"cmc"}
-              data-plasmic-override={overrides.cmc}
-              className={classNames(projectcss.all, projectcss.a, sty.cmc)}
-              component={Link}
-              href={
-                "https://coinmarketcap.com/currencies/idr-digital/" as const
-              }
-              platform={"nextjs"}
-              target={"_blank" as const}
-            >
-              <CmcsvgIcon
-                className={classNames(projectcss.all, sty.svg__j8Hg9)}
-                role={"img"}
-              />
-            </p.PlasmicLink>
-            <p.PlasmicLink
-              data-plasmic-name={"telegram"}
-              data-plasmic-override={overrides.telegram}
-              className={classNames(projectcss.all, projectcss.a, sty.telegram)}
-              component={Link}
-              href={"https://t.me/iddr_io" as const}
-              platform={"nextjs"}
-              target={"_blank" as const}
-            >
-              <IconIcon
-                className={classNames(projectcss.all, sty.svg___4U4SS)}
-                role={"img"}
-              />
-            </p.PlasmicLink>
-            <p.PlasmicLink
-              data-plasmic-name={"twitter"}
-              data-plasmic-override={overrides.twitter}
-              className={classNames(projectcss.all, projectcss.a, sty.twitter)}
-              component={Link}
-              href={"https://twitter.com/iddr_io" as const}
-              platform={"nextjs"}
-              target={"_blank" as const}
-            >
-              <Icon2Icon
-                className={classNames(projectcss.all, sty.svg___5Sopt)}
-                role={"img"}
-              />
-            </p.PlasmicLink>
-          </p.Stack>
-        ) : null}
+            <IconIcon
+              className={classNames(projectcss.all, sty.svg___4U4SS)}
+              role={"img"}
+            />
+          </p.PlasmicLink>
+          <p.PlasmicLink
+            data-plasmic-name={"twitter"}
+            data-plasmic-override={overrides.twitter}
+            className={classNames(projectcss.all, projectcss.a, sty.twitter)}
+            component={Link}
+            href={"https://twitter.com/iddr_io"}
+            platform={"nextjs"}
+            target={"_blank"}
+          >
+            <Icon2Icon
+              className={classNames(projectcss.all, sty.svg___5Sopt)}
+              role={"img"}
+            />
+          </p.PlasmicLink>
+        </p.Stack>
       </div>
     </div>
   ) as React.ReactElement | null;

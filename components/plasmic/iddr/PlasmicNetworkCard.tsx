@@ -46,6 +46,8 @@ import sty from "./PlasmicNetworkCard.module.css"; // plasmic-import: DybXCSmk6J
 import Icon3Icon from "./icons/PlasmicIcon__Icon3"; // plasmic-import: iDs7aDQs7T/icon
 import Icon8Icon from "./icons/PlasmicIcon__Icon8"; // plasmic-import: ZLscOeex6V/icon
 
+createPlasmicElementProxy;
+
 export type PlasmicNetworkCard__VariantMembers = {};
 export type PlasmicNetworkCard__VariantsArgs = {};
 type VariantPropType = keyof PlasmicNetworkCard__VariantsArgs;
@@ -66,14 +68,6 @@ export interface DefaultNetworkCardProps {
   className?: string;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
-
 function useNextRouter() {
   try {
     return useRouter();
@@ -88,89 +82,85 @@ function PlasmicNetworkCard__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+
   const $props = {
     ...args,
     ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = ph.useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
 
-  const [$queries, setDollarQueries] = React.useState({});
-
   return (
-    true ? (
-      <div
-        data-plasmic-name={"root"}
-        data-plasmic-override={overrides.root}
-        data-plasmic-root={true}
-        data-plasmic-for-node={forNode}
-        className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
-          projectcss.plasmic_tokens,
-          plasmic_antd_5_hostless_css.plasmic_tokens,
-          sty.root
-        )}
-      >
-        {p.renderPlasmicSlot({
-          defaultContents: (
-            <p.Stack
-              as={p.PlasmicLink}
-              hasGap={true}
+    <div
+      data-plasmic-name={"root"}
+      data-plasmic-override={overrides.root}
+      data-plasmic-root={true}
+      data-plasmic-for-node={forNode}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_mixins,
+        projectcss.plasmic_tokens,
+        plasmic_antd_5_hostless_css.plasmic_tokens,
+        sty.root
+      )}
+    >
+      {p.renderPlasmicSlot({
+        defaultContents: (
+          <p.Stack
+            as={p.PlasmicLink}
+            hasGap={true}
+            className={classNames(
+              projectcss.all,
+              projectcss.a,
+              sty.link__h8Asd
+            )}
+            component={Link}
+            platform={"nextjs"}
+          >
+            <Icon3Icon
+              className={classNames(projectcss.all, sty.svg__xt0V2)}
+              role={"img"}
+            />
+
+            <h5
               className={classNames(
                 projectcss.all,
-                projectcss.a,
-                sty.link__h8Asd
+                projectcss.h5,
+                projectcss.__wab_text,
+                sty.h5__cAdKg
               )}
-              component={Link}
-              platform={"nextjs"}
             >
-              <Icon3Icon
-                className={classNames(projectcss.all, sty.svg__xt0V2)}
-                role={"img"}
-              />
-
-              <h5
+              {"BSC"}
+            </h5>
+            <div className={classNames(projectcss.all, sty.freeBox__mcgrt)}>
+              <div
                 className={classNames(
                   projectcss.all,
-                  projectcss.h5,
                   projectcss.__wab_text,
-                  sty.h5__cAdKg
+                  sty.text__dTpuR
                 )}
               >
-                {"BSC"}
-              </h5>
-              {true ? (
-                <div className={classNames(projectcss.all, sty.freeBox__mcgrt)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__dTpuR
-                    )}
-                  >
-                    {"Open Eplorer"}
-                  </div>
-                  <Icon8Icon
-                    className={classNames(projectcss.all, sty.svg__s3YMw)}
-                    role={"img"}
-                  />
-                </div>
-              ) : null}
-            </p.Stack>
-          ),
-          value: args.children
-        })}
-      </div>
-    ) : null
+                {"Open Eplorer"}
+              </div>
+              <Icon8Icon
+                className={classNames(projectcss.all, sty.svg__s3YMw)}
+                role={"img"}
+              />
+            </div>
+          </p.Stack>
+        ),
+        value: args.children
+      })}
+    </div>
   ) as React.ReactElement | null;
 }
 

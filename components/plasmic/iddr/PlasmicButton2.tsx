@@ -47,6 +47,8 @@ import sty from "./PlasmicButton2.module.css"; // plasmic-import: R7FQakg198I/cs
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: WhOp2OsiY-D/icon
 import Icon38Icon from "./icons/PlasmicIcon__Icon38"; // plasmic-import: g3M_pomcN7I/icon
 
+createPlasmicElementProxy;
+
 export type PlasmicButton2__VariantMembers = {
   showStartIcon: "showStartIcon";
   showEndIcon: "showEndIcon";
@@ -147,14 +149,6 @@ export interface DefaultButton2Props extends pp.BaseButtonProps {
   >;
 }
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
-
 function useNextRouter() {
   try {
     return useRouter();
@@ -169,22 +163,22 @@ function PlasmicButton2__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+
   const $props = {
     ...args,
     ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = ph.useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
 
-  const [$queries, setDollarQueries] = React.useState({});
-
-  const stateSpecs = React.useMemo(
+  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "showStartIcon",
@@ -223,9 +217,14 @@ function PlasmicButton2__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => $props.color
       }
     ],
-    [$props, $ctx]
+    [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   const [isRootFocusVisibleWithin, triggerRootFocusVisibleWithinProps] =
     useTrigger("useFocusVisibleWithin", {

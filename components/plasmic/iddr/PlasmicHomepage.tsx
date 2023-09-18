@@ -66,6 +66,8 @@ import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: V54Kju9r17/
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: lDkdlle9aD/icon
 import CloseBoldSvgrepoComsvgIcon from "./icons/PlasmicIcon__CloseBoldSvgrepoComsvg"; // plasmic-import: 3wjTpps_Fo/icon
 
+createPlasmicElementProxy;
+
 export type PlasmicHomepage__VariantMembers = {};
 export type PlasmicHomepage__VariantsArgs = {};
 type VariantPropType = keyof PlasmicHomepage__VariantsArgs;
@@ -98,14 +100,6 @@ export type PlasmicHomepage__OverridesType = {
 
 export interface DefaultHomepageProps {}
 
-const __wrapUserFunction =
-  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn());
-const __wrapUserPromise =
-  globalThis.__PlasmicWrapUserPromise ??
-  (async (loc, promise) => {
-    return await promise;
-  });
-
 function useNextRouter() {
   try {
     return useRouter();
@@ -120,22 +114,22 @@ function PlasmicHomepage__RenderFunc(props: {
   forNode?: string;
 }) {
   const { variants, overrides, forNode } = props;
-  const __nextRouter = useNextRouter();
 
-  const $ctx = ph.useDataEnv?.() || {};
   const args = React.useMemo(() => Object.assign({}, props.args), [props.args]);
+
   const $props = {
     ...args,
     ...variants
   };
+
+  const __nextRouter = useNextRouter();
+  const $ctx = ph.useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
   const currentUser = p.useCurrentUser?.() || {};
 
-  const [$queries, setDollarQueries] = React.useState({});
-
-  const stateSpecs = React.useMemo(
+  const stateSpecs: Parameters<typeof p.useDollarState>[0] = React.useMemo(
     () => [
       {
         path: "navbar.isMenuOpen",
@@ -144,9 +138,14 @@ function PlasmicHomepage__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $ctx }) => false
       }
     ],
-    [$props, $ctx]
+    [$props, $ctx, $refs]
   );
-  const $state = p.useDollarState(stateSpecs, { $props, $ctx, $queries });
+  const $state = p.useDollarState(stateSpecs, {
+    $props,
+    $ctx,
+    $queries: {},
+    $refs
+  });
 
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariantsvWlfn14Jm89In()
@@ -182,9 +181,9 @@ function PlasmicHomepage__RenderFunc(props: {
             data-plasmic-name={"pageMetadataOverride"}
             data-plasmic-override={overrides.pageMetadataOverride}
             className={classNames("__wab_instance", sty.pageMetadataOverride)}
-            description={"Inovasi mata uang digital Nusantara" as const}
+            description={"Inovasi mata uang digital Nusantara"}
             image={"/plasmic/iddr/images/iddrRoundedjpg.jpg"}
-            title={"Indonesia Digital Rupiah" as const}
+            title={"Indonesia Digital Rupiah"}
           />
 
           <Navbar
@@ -204,13 +203,13 @@ function PlasmicHomepage__RenderFunc(props: {
           <div className={classNames(projectcss.all, sty.freeBox__vB9)}>
             <div
               className={classNames(projectcss.all, sty.freeBox__zoEqj)}
-              id={"home" as const}
+              id={"home"}
             >
               <div className={classNames(projectcss.all, sty.columns__a7Wpx)}>
                 <div className={classNames(projectcss.all, sty.column__jxi8B)}>
                   <Reveal
                     className={classNames("__wab_instance", sty.reveal__nmXAr)}
-                    direction={"left" as const}
+                    direction={"left"}
                     triggerOnce={true}
                   >
                     <p.Stack
@@ -270,8 +269,8 @@ function PlasmicHomepage__RenderFunc(props: {
                               role={"img"}
                             />
                           }
-                          link={"/whitepaper-25-May-2023.pdf" as const}
-                          shape={"rounded" as const}
+                          link={"/whitepaper-25-May-2023.pdf"}
+                          shape={"rounded"}
                           showStartIcon={true}
                           startIcon={
                             <GoogleDocsSvgrepoComsvgIcon
@@ -308,8 +307,8 @@ function PlasmicHomepage__RenderFunc(props: {
                               role={"img"}
                             />
                           }
-                          link={"#about" as const}
-                          shape={"rounded" as const}
+                          link={"#about"}
+                          shape={"rounded"}
                           startIcon={
                             <ChecksvgIcon
                               className={classNames(
@@ -338,7 +337,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 <div className={classNames(projectcss.all, sty.column__pkUaO)}>
                   <Reveal
                     className={classNames("__wab_instance", sty.reveal__swtb7)}
-                    direction={"right" as const}
+                    direction={"right"}
                     triggerOnce={true}
                   >
                     <div
@@ -351,7 +350,7 @@ function PlasmicHomepage__RenderFunc(props: {
           </div>
           <div
             className={classNames(projectcss.all, sty.freeBox___1Seb)}
-            id={"about" as const}
+            id={"about"}
           >
             <div className={classNames(projectcss.all, sty.freeBox__yOjcJ)}>
               <p.Stack
@@ -360,38 +359,36 @@ function PlasmicHomepage__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.columns__aqzXj)}
               >
                 <div className={classNames(projectcss.all, sty.column___3Atbj)}>
-                  {true ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__fRwtX)}
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__fRwtX)}
+                  >
+                    <Reveal
+                      className={classNames(
+                        "__wab_instance",
+                        sty.reveal__clfvY
+                      )}
+                      direction={"left"}
+                      triggerOnce={true}
                     >
-                      <Reveal
-                        className={classNames(
-                          "__wab_instance",
-                          sty.reveal__clfvY
-                        )}
-                        direction={"left" as const}
-                        triggerOnce={true}
-                      >
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img__joUr)}
-                          displayHeight={"auto" as const}
-                          displayMaxHeight={"none" as const}
-                          displayMaxWidth={"none" as const}
-                          displayMinHeight={"0" as const}
-                          displayMinWidth={"0" as const}
-                          displayWidth={"100%" as const}
-                          loading={"lazy" as const}
-                          src={{
-                            src: "/plasmic/iddr/images/indonesianMappng.png",
-                            fullWidth: 780,
-                            fullHeight: 349,
-                            aspectRatio: undefined
-                          }}
-                        />
-                      </Reveal>
-                    </div>
-                  ) : null}
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__joUr)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"none"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"100%"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/iddr/images/indonesianMappng.png",
+                          fullWidth: 780,
+                          fullHeight: 349,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </Reveal>
+                  </div>
                 </div>
                 <p.Stack
                   as={"div"}
@@ -400,39 +397,34 @@ function PlasmicHomepage__RenderFunc(props: {
                 >
                   <Reveal
                     className={classNames("__wab_instance", sty.reveal__jy8R7)}
-                    direction={"right" as const}
+                    direction={"right"}
                     triggerOnce={true}
                   >
-                    {true ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__h4MuD)}
+                    >
+                      <h2
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h2,
+                          projectcss.__wab_text,
+                          sty.h2__bswU
+                        )}
+                      >
+                        {"Tentang Indonesia \nDigital Rupiah"}
+                      </h2>
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__h4MuD
+                          projectcss.__wab_text,
+                          sty.text__tO4
                         )}
                       >
-                        <h2
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.h2,
-                            projectcss.__wab_text,
-                            sty.h2__bswU
-                          )}
-                        >
-                          {"Tentang Indonesia \nDigital Rupiah"}
-                        </h2>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__tO4
-                          )}
-                        >
-                          {
-                            "Indonesia Digital Rupiah adalah mata uang digital terkini yang dirancang untuk mendukung kemajuan ekonomi dan teknologi di Indonesia. Menggabungkan keamanan, kecepatan, dan efisiensi blockchain dengan nilai dan stabilitas Rupiah, Indonesia Digital Rupiah menjadi solusi yang inovatif dalam era digital. Dengan menggunakan Indonesia Digital Rupiah, Anda dapat melakukan transaksi digital secara mudah, aman, dan cepat, baik dalam negeri maupun lintas batas. Bergabunglah dengan revolusi mata uang digital Indonesia dan rasakan kemudahan serta manfaatnya dalam kehidupan sehari-hari."
-                          }
-                        </div>
+                        {
+                          "Indonesia Digital Rupiah adalah mata uang digital terkini yang dirancang untuk mendukung kemajuan ekonomi dan teknologi di Indonesia. Menggabungkan keamanan, kecepatan, dan efisiensi blockchain dengan nilai dan stabilitas Rupiah, Indonesia Digital Rupiah menjadi solusi yang inovatif dalam era digital. Dengan menggunakan Indonesia Digital Rupiah, Anda dapat melakukan transaksi digital secara mudah, aman, dan cepat, baik dalam negeri maupun lintas batas. Bergabunglah dengan revolusi mata uang digital Indonesia dan rasakan kemudahan serta manfaatnya dalam kehidupan sehari-hari."
+                        }
                       </div>
-                    ) : null}
+                    </div>
                   </Reveal>
                 </p.Stack>
               </p.Stack>
@@ -440,7 +432,7 @@ function PlasmicHomepage__RenderFunc(props: {
           </div>
           <div
             className={classNames(projectcss.all, sty.freeBox__aNv5A)}
-            id={"contract" as const}
+            id={"contract"}
           >
             <div className={classNames(projectcss.all, sty.freeBox__c3I2J)}>
               <p.Stack
@@ -455,372 +447,348 @@ function PlasmicHomepage__RenderFunc(props: {
                 >
                   <Reveal
                     className={classNames("__wab_instance", sty.reveal__oeRkk)}
-                    direction={"right" as const}
+                    direction={"right"}
                     triggerOnce={true}
                   >
-                    {true ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__hwh23)}
+                    >
+                      <h2
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h2,
+                          projectcss.__wab_text,
+                          sty.h2__uEgEx
+                        )}
+                      >
+                        {hasVariant(globalVariants, "screen", "mobileOnly")
+                          ? "Smart Contract Indonesia \nDigital Rupiah "
+                          : "Smart Contract \nIndonesia Digital Rupiah "}
+                      </h2>
                       <div
                         className={classNames(
                           projectcss.all,
-                          sty.freeBox__hwh23
+                          projectcss.__wab_text,
+                          sty.text__bCvZ
                         )}
                       >
-                        <h2
+                        {
+                          "Indonesia Digital Rupiah memberikan fleksibilitas dan ketersediaan melalui integrasi di berbagai platform blockchain terkemuka"
+                        }
+                      </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__z17C
+                        )}
+                      >
+                        <h3
+                          data-plasmic-name={"h3"}
+                          data-plasmic-override={overrides.h3}
                           className={classNames(
                             projectcss.all,
-                            projectcss.h2,
+                            projectcss.h3,
                             projectcss.__wab_text,
-                            sty.h2__uEgEx
+                            sty.h3
                           )}
                         >
-                          {hasVariant(globalVariants, "screen", "mobileOnly")
-                            ? "Smart Contract Indonesia \nDigital Rupiah "
-                            : "Smart Contract \nIndonesia Digital Rupiah "}
-                        </h2>
+                          {"300.000.000 IDDR"}
+                        </h3>
                         <div
                           className={classNames(
                             projectcss.all,
                             projectcss.__wab_text,
-                            sty.text__bCvZ
+                            sty.text__cymz
                           )}
                         >
-                          {
-                            "Indonesia Digital Rupiah memberikan fleksibilitas dan ketersediaan melalui integrasi di berbagai platform blockchain terkemuka"
-                          }
+                          {"Circulating supply"}
                         </div>
-                        {true ? (
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__z17C
-                            )}
-                          >
-                            <h3
-                              data-plasmic-name={"h3"}
-                              data-plasmic-override={overrides.h3}
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.h3,
-                                projectcss.__wab_text,
-                                sty.h3
-                              )}
-                            >
-                              {"300.000.000 IDDR"}
-                            </h3>
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
-                                sty.text__cymz
-                              )}
-                            >
-                              {"Circulating supply"}
-                            </div>
-                          </div>
-                        ) : null}
-                        {true ? (
+                      </div>
+                      <p.Stack
+                        as={"div"}
+                        hasGap={true}
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__lZfc9
+                        )}
+                      >
+                        <NetworkCard
+                          className={classNames(
+                            "__wab_instance",
+                            sty.networkCard__n9Ai3
+                          )}
+                        >
                           <p.Stack
-                            as={"div"}
+                            as={p.PlasmicLink}
                             hasGap={true}
                             className={classNames(
                               projectcss.all,
-                              sty.freeBox__lZfc9
+                              projectcss.a,
+                              sty.link__l6O5Q
                             )}
+                            component={Link}
+                            href={
+                              "https://etherscan.io/token/0x9a8284c2cec196478f01ef4446a0222dd4def00e"
+                            }
+                            platform={"nextjs"}
+                            target={"_blank"}
                           >
-                            <NetworkCard
+                            <Icon4Icon
                               className={classNames(
-                                "__wab_instance",
-                                sty.networkCard__n9Ai3
+                                projectcss.all,
+                                sty.svg__skzEw
+                              )}
+                              role={"img"}
+                            />
+
+                            <h5
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h5,
+                                projectcss.__wab_text,
+                                sty.h5__aUu4S
                               )}
                             >
-                              <p.Stack
-                                as={p.PlasmicLink}
-                                hasGap={true}
-                                className={classNames(
-                                  projectcss.all,
-                                  projectcss.a,
-                                  sty.link__l6O5Q
-                                )}
-                                component={Link}
-                                href={
-                                  "https://etherscan.io/token/0x9a8284c2cec196478f01ef4446a0222dd4def00e" as const
-                                }
-                                platform={"nextjs"}
-                                target={"_blank" as const}
-                              >
-                                <Icon4Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__skzEw
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <h5
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h5,
-                                    projectcss.__wab_text,
-                                    sty.h5__aUu4S
-                                  )}
-                                >
-                                  {"Ethereum"}
-                                </h5>
-                                {true ? (
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__k19Go
-                                    )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text___7SC4Q
-                                      )}
-                                    >
-                                      {
-                                        "https://etherscan.io/token/0x9a8284c2cec196478f01ef4446a0222dd4def00e"
-                                      }
-                                    </div>
-                                    <Icon8Icon
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.svg__br0Nq
-                                      )}
-                                      role={"img"}
-                                    />
-                                  </div>
-                                ) : null}
-                              </p.Stack>
-                            </NetworkCard>
-                            <NetworkCard
+                              {"Ethereum"}
+                            </h5>
+                            <div
                               className={classNames(
-                                "__wab_instance",
-                                sty.networkCard__sg0Br
+                                projectcss.all,
+                                sty.freeBox__k19Go
                               )}
                             >
-                              <p.Stack
-                                as={p.PlasmicLink}
-                                hasGap={true}
+                              <div
                                 className={classNames(
                                   projectcss.all,
-                                  projectcss.a,
-                                  sty.link__bBe0P
+                                  projectcss.__wab_text,
+                                  sty.text___7SC4Q
                                 )}
-                                component={Link}
-                                href={
-                                  "https://www.bscscan.com/token/0x9a8284c2cec196478f01ef4446a0222dd4def00e" as const
-                                }
-                                platform={"nextjs"}
-                                target={"_blank" as const}
                               >
-                                <Icon3Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__mZ6Km
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <h5
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h5,
-                                    projectcss.__wab_text,
-                                    sty.h5__oZmj0
-                                  )}
-                                >
-                                  {"BSC"}
-                                </h5>
-                                {true ? (
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__ih0Sx
-                                    )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text___9Mr6
-                                      )}
-                                    >
-                                      {"https://bscscan.com/token/0x9a...f00e"}
-                                    </div>
-                                    <Icon8Icon
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.svg___4Uf8L
-                                      )}
-                                      role={"img"}
-                                    />
-                                  </div>
-                                ) : null}
-                              </p.Stack>
-                            </NetworkCard>
-                            <NetworkCard
-                              className={classNames(
-                                "__wab_instance",
-                                sty.networkCard__piGP
-                              )}
-                            >
-                              <p.Stack
-                                as={p.PlasmicLink}
-                                hasGap={true}
+                                {
+                                  "https://etherscan.io/token/0x9a8284c2cec196478f01ef4446a0222dd4def00e"
+                                }
+                              </div>
+                              <Icon8Icon
                                 className={classNames(
                                   projectcss.all,
-                                  projectcss.a,
-                                  sty.link__hikkj
+                                  sty.svg__br0Nq
                                 )}
-                                component={Link}
-                                href={
-                                  "https://polygonscan.com/token/0x9a8284c2cec196478f01ef4446a0222dd4def00e" as const
-                                }
-                                platform={"nextjs"}
-                                target={"_blank" as const}
-                              >
-                                <Icon5Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__ji7Nd
-                                  )}
-                                  role={"img"}
-                                />
-
-                                <h5
-                                  className={classNames(
-                                    projectcss.all,
-                                    projectcss.h5,
-                                    projectcss.__wab_text,
-                                    sty.h5__yeSt
-                                  )}
-                                >
-                                  {"Polygon"}
-                                </h5>
-                                {true ? (
-                                  <div
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.freeBox__iVmVy
-                                    )}
-                                  >
-                                    <div
-                                      className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
-                                        sty.text__reNf9
-                                      )}
-                                    >
-                                      {
-                                        "https://polygonscan.com/token/0x9a...f00e"
-                                      }
-                                    </div>
-                                    <Icon8Icon
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.svg__e4Ja2
-                                      )}
-                                      role={"img"}
-                                    />
-                                  </div>
-                                ) : null}
-                              </p.Stack>
-                            </NetworkCard>
+                                role={"img"}
+                              />
+                            </div>
                           </p.Stack>
-                        ) : null}
-                      </div>
-                    ) : null}
+                        </NetworkCard>
+                        <NetworkCard
+                          className={classNames(
+                            "__wab_instance",
+                            sty.networkCard__sg0Br
+                          )}
+                        >
+                          <p.Stack
+                            as={p.PlasmicLink}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.a,
+                              sty.link__bBe0P
+                            )}
+                            component={Link}
+                            href={
+                              "https://www.bscscan.com/token/0x9a8284c2cec196478f01ef4446a0222dd4def00e"
+                            }
+                            platform={"nextjs"}
+                            target={"_blank"}
+                          >
+                            <Icon3Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__mZ6Km
+                              )}
+                              role={"img"}
+                            />
+
+                            <h5
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h5,
+                                projectcss.__wab_text,
+                                sty.h5__oZmj0
+                              )}
+                            >
+                              {"BSC"}
+                            </h5>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__ih0Sx
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text___9Mr6
+                                )}
+                              >
+                                {"https://bscscan.com/token/0x9a...f00e"}
+                              </div>
+                              <Icon8Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg___4Uf8L
+                                )}
+                                role={"img"}
+                              />
+                            </div>
+                          </p.Stack>
+                        </NetworkCard>
+                        <NetworkCard
+                          className={classNames(
+                            "__wab_instance",
+                            sty.networkCard__piGP
+                          )}
+                        >
+                          <p.Stack
+                            as={p.PlasmicLink}
+                            hasGap={true}
+                            className={classNames(
+                              projectcss.all,
+                              projectcss.a,
+                              sty.link__hikkj
+                            )}
+                            component={Link}
+                            href={
+                              "https://polygonscan.com/token/0x9a8284c2cec196478f01ef4446a0222dd4def00e"
+                            }
+                            platform={"nextjs"}
+                            target={"_blank"}
+                          >
+                            <Icon5Icon
+                              className={classNames(
+                                projectcss.all,
+                                sty.svg__ji7Nd
+                              )}
+                              role={"img"}
+                            />
+
+                            <h5
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h5,
+                                projectcss.__wab_text,
+                                sty.h5__yeSt
+                              )}
+                            >
+                              {"Polygon"}
+                            </h5>
+                            <div
+                              className={classNames(
+                                projectcss.all,
+                                sty.freeBox__iVmVy
+                              )}
+                            >
+                              <div
+                                className={classNames(
+                                  projectcss.all,
+                                  projectcss.__wab_text,
+                                  sty.text__reNf9
+                                )}
+                              >
+                                {"https://polygonscan.com/token/0x9a...f00e"}
+                              </div>
+                              <Icon8Icon
+                                className={classNames(
+                                  projectcss.all,
+                                  sty.svg__e4Ja2
+                                )}
+                                role={"img"}
+                              />
+                            </div>
+                          </p.Stack>
+                        </NetworkCard>
+                      </p.Stack>
+                    </div>
                   </Reveal>
                 </p.Stack>
                 <div className={classNames(projectcss.all, sty.column__abTQl)}>
-                  {true ? (
-                    <div
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox___9TUHz)}
+                  >
+                    <Reveal
                       className={classNames(
-                        projectcss.all,
-                        sty.freeBox___9TUHz
+                        "__wab_instance",
+                        sty.reveal___1VFEj
                       )}
+                      direction={"left"}
+                      triggerOnce={true}
                     >
-                      <Reveal
-                        className={classNames(
-                          "__wab_instance",
-                          sty.reveal___1VFEj
-                        )}
-                        direction={"left" as const}
-                        triggerOnce={true}
-                      >
-                        <p.PlasmicImg
-                          alt={""}
-                          className={classNames(sty.img__syY7)}
-                          displayHeight={"auto" as const}
-                          displayMaxHeight={"none" as const}
-                          displayMaxWidth={"none" as const}
-                          displayMinHeight={"0" as const}
-                          displayMinWidth={"0" as const}
-                          displayWidth={"100%" as const}
-                          loading={"lazy" as const}
-                          src={{
-                            src: "/plasmic/iddr/images/smartcontract3Png.png",
-                            fullWidth: 1024,
-                            fullHeight: 1024,
-                            aspectRatio: undefined
-                          }}
-                        />
-                      </Reveal>
-                    </div>
-                  ) : null}
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img__syY7)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"none"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"100%"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/iddr/images/smartcontract3Png.png",
+                          fullWidth: 1024,
+                          fullHeight: 1024,
+                          aspectRatio: undefined
+                        }}
+                      />
+                    </Reveal>
+                  </div>
                 </div>
               </p.Stack>
             </div>
           </div>
           <div
             className={classNames(projectcss.all, sty.freeBox__aO8ZD)}
-            id={"team" as const}
+            id={"team"}
           >
             <div className={classNames(projectcss.all, sty.freeBox__u44ZL)}>
               <Reveal
                 className={classNames("__wab_instance", sty.reveal__a6UTc)}
-                direction={"up" as const}
+                direction={"up"}
                 triggerOnce={true}
               >
-                {true ? (
-                  <p.Stack
-                    as={"div"}
-                    data-plasmic-name={"title"}
-                    data-plasmic-override={overrides.title}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.title)}
+                <p.Stack
+                  as={"div"}
+                  data-plasmic-name={"title"}
+                  data-plasmic-override={overrides.title}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.title)}
+                >
+                  <h2
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h2,
+                      projectcss.__wab_text,
+                      sty.h2___8Z9W
+                    )}
                   >
-                    <h2
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h2,
-                        projectcss.__wab_text,
-                        sty.h2___8Z9W
-                      )}
-                    >
-                      {"Tim kami"}
-                    </h2>
-                    <h6
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h6,
-                        projectcss.__wab_text,
-                        sty.h6__xEvGy
-                      )}
-                    >
-                      {
-                        "Kami bekerja dengan pengalaman dan keahlian terbaik di industri keuangan."
-                      }
-                    </h6>
-                  </p.Stack>
-                ) : null}
+                    {"Tim kami"}
+                  </h2>
+                  <h6
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h6,
+                      projectcss.__wab_text,
+                      sty.h6__xEvGy
+                    )}
+                  >
+                    {
+                      "Kami bekerja dengan pengalaman dan keahlian terbaik di industri keuangan."
+                    }
+                  </h6>
+                </p.Stack>
               </Reveal>
               <Reveal
                 className={classNames("__wab_instance", sty.reveal__yDdRl)}
-                direction={"up" as const}
+                direction={"up"}
                 triggerOnce={true}
               >
                 <p.Stack
@@ -836,13 +804,13 @@ function PlasmicHomepage__RenderFunc(props: {
                     <p.PlasmicImg
                       alt={""}
                       className={classNames(sty.img__uoVx)}
-                      displayHeight={"200px" as const}
-                      displayMaxHeight={"none" as const}
-                      displayMaxWidth={"100%" as const}
-                      displayMinHeight={"0" as const}
-                      displayMinWidth={"0" as const}
-                      displayWidth={"200px" as const}
-                      loading={"lazy" as const}
+                      displayHeight={"200px"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"200px"}
+                      loading={"lazy"}
                       src={{
                         src: "/plasmic/iddr/images/fandy3Png.png",
                         fullWidth: 800,
@@ -851,33 +819,31 @@ function PlasmicHomepage__RenderFunc(props: {
                       }}
                     />
 
-                    {true ? (
-                      <div
-                        data-plasmic-name={"desc"}
-                        data-plasmic-override={overrides.desc}
-                        className={classNames(projectcss.all, sty.desc)}
+                    <div
+                      data-plasmic-name={"desc"}
+                      data-plasmic-override={overrides.desc}
+                      className={classNames(projectcss.all, sty.desc)}
+                    >
+                      <h6
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h6,
+                          projectcss.__wab_text,
+                          sty.h6__x3J1W
+                        )}
                       >
-                        <h6
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.h6,
-                            projectcss.__wab_text,
-                            sty.h6__x3J1W
-                          )}
-                        >
-                          {"Fandy Label Honggono"}
-                        </h6>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__x2GMl
-                          )}
-                        >
-                          {"CEO"}
-                        </div>
+                        {"Fandy Label Honggono"}
+                      </h6>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__x2GMl
+                        )}
+                      >
+                        {"CEO"}
                       </div>
-                    ) : null}
+                    </div>
                   </p.Stack>
                   <p.Stack
                     as={"div"}
@@ -887,13 +853,13 @@ function PlasmicHomepage__RenderFunc(props: {
                     <p.PlasmicImg
                       alt={""}
                       className={classNames(sty.img__obYqS)}
-                      displayHeight={"200px" as const}
-                      displayMaxHeight={"none" as const}
-                      displayMaxWidth={"100%" as const}
-                      displayMinHeight={"0" as const}
-                      displayMinWidth={"0" as const}
-                      displayWidth={"200px" as const}
-                      loading={"lazy" as const}
+                      displayHeight={"200px"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"200px"}
+                      loading={"lazy"}
                       src={{
                         src: "/plasmic/iddr/images/janepng.png",
                         fullWidth: 550,
@@ -902,33 +868,31 @@ function PlasmicHomepage__RenderFunc(props: {
                       }}
                     />
 
-                    {true ? (
-                      <div
-                        data-plasmic-name={"desc2"}
-                        data-plasmic-override={overrides.desc2}
-                        className={classNames(projectcss.all, sty.desc2)}
+                    <div
+                      data-plasmic-name={"desc2"}
+                      data-plasmic-override={overrides.desc2}
+                      className={classNames(projectcss.all, sty.desc2)}
+                    >
+                      <h6
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h6,
+                          projectcss.__wab_text,
+                          sty.h6__wDsiE
+                        )}
                       >
-                        <h6
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.h6,
-                            projectcss.__wab_text,
-                            sty.h6__wDsiE
-                          )}
-                        >
-                          {"Jane Malinda Sutanto"}
-                        </h6>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__pDx96
-                          )}
-                        >
-                          {"CFO"}
-                        </div>
+                        {"Jane Malinda Sutanto"}
+                      </h6>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__pDx96
+                        )}
+                      >
+                        {"CFO"}
                       </div>
-                    ) : null}
+                    </div>
                   </p.Stack>
                   <p.Stack
                     as={"div"}
@@ -938,13 +902,13 @@ function PlasmicHomepage__RenderFunc(props: {
                     <p.PlasmicImg
                       alt={""}
                       className={classNames(sty.img__bCni)}
-                      displayHeight={"200px" as const}
-                      displayMaxHeight={"none" as const}
-                      displayMaxWidth={"100%" as const}
-                      displayMinHeight={"0" as const}
-                      displayMinWidth={"0" as const}
-                      displayWidth={"200px" as const}
-                      loading={"lazy" as const}
+                      displayHeight={"200px"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"200px"}
+                      loading={"lazy"}
                       src={{
                         src: "/plasmic/iddr/images/yulipng.png",
                         fullWidth: 638,
@@ -953,33 +917,31 @@ function PlasmicHomepage__RenderFunc(props: {
                       }}
                     />
 
-                    {true ? (
-                      <div
-                        data-plasmic-name={"desc3"}
-                        data-plasmic-override={overrides.desc3}
-                        className={classNames(projectcss.all, sty.desc3)}
+                    <div
+                      data-plasmic-name={"desc3"}
+                      data-plasmic-override={overrides.desc3}
+                      className={classNames(projectcss.all, sty.desc3)}
+                    >
+                      <h6
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h6,
+                          projectcss.__wab_text,
+                          sty.h6___0Y1Yz
+                        )}
                       >
-                        <h6
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.h6,
-                            projectcss.__wab_text,
-                            sty.h6___0Y1Yz
-                          )}
-                        >
-                          {"Liem Yuliana"}
-                        </h6>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__ovf1K
-                          )}
-                        >
-                          {"Finance Advisor"}
-                        </div>
+                        {"Liem Yuliana"}
+                      </h6>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ovf1K
+                        )}
+                      >
+                        {"Finance Advisor"}
                       </div>
-                    ) : null}
+                    </div>
                   </p.Stack>
                   <p.Stack
                     as={"div"}
@@ -989,13 +951,13 @@ function PlasmicHomepage__RenderFunc(props: {
                     <p.PlasmicImg
                       alt={""}
                       className={classNames(sty.img___4UDsR)}
-                      displayHeight={"200px" as const}
-                      displayMaxHeight={"none" as const}
-                      displayMaxWidth={"100%" as const}
-                      displayMinHeight={"0" as const}
-                      displayMinWidth={"0" as const}
-                      displayWidth={"200px" as const}
-                      loading={"lazy" as const}
+                      displayHeight={"200px"}
+                      displayMaxHeight={"none"}
+                      displayMaxWidth={"100%"}
+                      displayMinHeight={"0"}
+                      displayMinWidth={"0"}
+                      displayWidth={"200px"}
+                      loading={"lazy"}
                       src={{
                         src: "/plasmic/iddr/images/willypng.png",
                         fullWidth: 1200,
@@ -1004,33 +966,31 @@ function PlasmicHomepage__RenderFunc(props: {
                       }}
                     />
 
-                    {true ? (
-                      <div
-                        data-plasmic-name={"desc4"}
-                        data-plasmic-override={overrides.desc4}
-                        className={classNames(projectcss.all, sty.desc4)}
+                    <div
+                      data-plasmic-name={"desc4"}
+                      data-plasmic-override={overrides.desc4}
+                      className={classNames(projectcss.all, sty.desc4)}
+                    >
+                      <h6
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h6,
+                          projectcss.__wab_text,
+                          sty.h6__d3Qgw
+                        )}
                       >
-                        <h6
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.h6,
-                            projectcss.__wab_text,
-                            sty.h6__d3Qgw
-                          )}
-                        >
-                          {"Willyanto Wijaya S"}
-                        </h6>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__nqwbo
-                          )}
-                        >
-                          {"Technical Advisor"}
-                        </div>
+                        {"Willyanto Wijaya S"}
+                      </h6>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__nqwbo
+                        )}
+                      >
+                        {"Technical Advisor"}
                       </div>
-                    ) : null}
+                    </div>
                   </p.Stack>
                 </p.Stack>
               </Reveal>
@@ -1038,44 +998,42 @@ function PlasmicHomepage__RenderFunc(props: {
           </div>
           <div
             className={classNames(projectcss.all, sty.freeBox__yYrZu)}
-            id={"bank" as const}
+            id={"bank"}
           >
             <div className={classNames(projectcss.all, sty.freeBox__adpNo)}>
               <Reveal
                 className={classNames("__wab_instance", sty.reveal__ifIpE)}
-                direction={"up" as const}
+                direction={"up"}
                 triggerOnce={true}
               >
-                {true ? (
-                  <p.Stack
-                    as={"div"}
-                    data-plasmic-name={"title3"}
-                    data-plasmic-override={overrides.title3}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.title3)}
+                <p.Stack
+                  as={"div"}
+                  data-plasmic-name={"title3"}
+                  data-plasmic-override={overrides.title3}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.title3)}
+                >
+                  <h2
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h2,
+                      projectcss.__wab_text,
+                      sty.h2__n0USz
+                    )}
                   >
-                    <h2
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h2,
-                        projectcss.__wab_text,
-                        sty.h2__n0USz
-                      )}
-                    >
-                      {"Laporan Bulanan Bank"}
-                    </h2>
-                    <h6
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h6,
-                        projectcss.__wab_text,
-                        sty.h6__aE9DA
-                      )}
-                    >
-                      {"Laporan Bulanan Bank Indonesia Digital Rupiah"}
-                    </h6>
-                  </p.Stack>
-                ) : null}
+                    {"Laporan Bulanan Bank"}
+                  </h2>
+                  <h6
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.h6,
+                      projectcss.__wab_text,
+                      sty.h6__aE9DA
+                    )}
+                  >
+                    {"Laporan Bulanan Bank Indonesia Digital Rupiah"}
+                  </h6>
+                </p.Stack>
               </Reveal>
               <DataProvider
                 data-plasmic-name={"dataProvider"}
@@ -1119,7 +1077,7 @@ function PlasmicHomepage__RenderFunc(props: {
                     url: ["https://www.placecage.com/200/300"]
                   }
                 ]}
-                name={"bankReport" as const}
+                name={"bankReport"}
               >
                 <ph.DataCtxReader>
                   {$ctx => (
@@ -1161,7 +1119,7 @@ function PlasmicHomepage__RenderFunc(props: {
                       linkTo={currentItem => {
                         return currentItem.url[0];
                       }}
-                      pageSize={5 as const}
+                      pageSize={5}
                       pagination={true}
                       rowActions={[]}
                       title={(() => {
@@ -1169,7 +1127,7 @@ function PlasmicHomepage__RenderFunc(props: {
                         __composite["0"]["fieldId"] = "desc";
                         return __composite;
                       })()}
-                      type={"list" as const}
+                      type={"list"}
                     />
                   )}
                 </ph.DataCtxReader>
@@ -1178,7 +1136,7 @@ function PlasmicHomepage__RenderFunc(props: {
           </div>
           <div
             className={classNames(projectcss.all, sty.freeBox__dAw1O)}
-            id={"contact" as const}
+            id={"contact"}
           >
             <div className={classNames(projectcss.all, sty.freeBox__lcmS1)}>
               <p.Stack
@@ -1187,47 +1145,86 @@ function PlasmicHomepage__RenderFunc(props: {
                 className={classNames(projectcss.all, sty.columns__vDqJ9)}
               >
                 <div className={classNames(projectcss.all, sty.column__jtIQ)}>
-                  {true ? (
+                  <p.Stack
+                    as={"div"}
+                    data-plasmic-name={"title2"}
+                    data-plasmic-override={overrides.title2}
+                    hasGap={true}
+                    className={classNames(projectcss.all, sty.title2)}
+                  >
                     <p.Stack
                       as={"div"}
-                      data-plasmic-name={"title2"}
-                      data-plasmic-override={overrides.title2}
                       hasGap={true}
-                      className={classNames(projectcss.all, sty.title2)}
+                      className={classNames(projectcss.all, sty.freeBox__o65N1)}
                     >
-                      <h2
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h2,
-                          projectcss.__wab_text,
-                          sty.h2__h17U4
-                        )}
-                      >
-                        {"Kontak"}
-                      </h2>
-                      <h6
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h6,
-                          projectcss.__wab_text,
-                          sty.h6__dLzMm
-                        )}
-                      >
-                        {"Let’s Work Together"}
-                      </h6>
                       <div
                         className={classNames(
                           projectcss.all,
                           projectcss.__wab_text,
-                          sty.text__exB6N
+                          sty.text___5L0Fg
                         )}
                       >
-                        {
-                          "JL. Jend. Sudirman Kav 21, Kel. Karet Kuningan, Kec. Setiabudi, Jakarta Selatan, DKI Jakarta, Indonesia 12920\n\ninfo@iddr.io"
-                        }
+                        <React.Fragment>
+                          <span
+                            className={
+                              "plasmic_default__all plasmic_default__span"
+                            }
+                            style={{ color: "#FFFDFD" }}
+                          >
+                            {"Supervised by"}
+                          </span>
+                        </React.Fragment>
                       </div>
+                      <p.PlasmicImg
+                        alt={""}
+                        className={classNames(sty.img___52WA5)}
+                        displayHeight={"auto"}
+                        displayMaxHeight={"none"}
+                        displayMaxWidth={"100%"}
+                        displayMinHeight={"0"}
+                        displayMinWidth={"0"}
+                        displayWidth={"300px"}
+                        loading={"lazy"}
+                        src={{
+                          src: "/plasmic/iddr/images/bappebtiRemovebpng2.png",
+                          fullWidth: 432,
+                          fullHeight: 137,
+                          aspectRatio: undefined
+                        }}
+                      />
                     </p.Stack>
-                  ) : null}
+                    <h2
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h2,
+                        projectcss.__wab_text,
+                        sty.h2__h17U4
+                      )}
+                    >
+                      {"Kontak"}
+                    </h2>
+                    <h6
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h6,
+                        projectcss.__wab_text,
+                        sty.h6__dLzMm
+                      )}
+                    >
+                      {"Let\u2019s Work Together"}
+                    </h6>
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__exB6N
+                      )}
+                    >
+                      {
+                        "JL. Jend. Sudirman Kav 21, Kel. Karet Kuningan, Kec. Setiabudi, Jakarta Selatan, DKI Jakarta, Indonesia 12920\n\ninfo@iddr.io"
+                      }
+                    </div>
+                  </p.Stack>
                 </div>
                 <div className={classNames(projectcss.all, sty.column__haRrA)}>
                   <Embed
@@ -1236,8 +1233,8 @@ function PlasmicHomepage__RenderFunc(props: {
                     className={classNames("__wab_instance", sty.embedHtml)}
                     code={
                       hasVariant(globalVariants, "screen", "mobileOnly")
-                        ? ('<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15865.606422642355!2d106.8222893!3d-6.2106448!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f55e2d3fbe1f%3A0x9a3af0621b70d07f!2sWeWork%20Sinarmas%20MSIG%20Tower!5e0!3m2!1sen!2sid!4v1684983001341!5m2!1sen!2sid" width="360" height="460" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' as const)
-                        : ('<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15865.606422642355!2d106.8222893!3d-6.2106448!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f55e2d3fbe1f%3A0x9a3af0621b70d07f!2sWeWork%20Sinarmas%20MSIG%20Tower!5e0!3m2!1sen!2sid!4v1684983001341!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>' as const)
+                        ? '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15865.606422642355!2d106.8222893!3d-6.2106448!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f55e2d3fbe1f%3A0x9a3af0621b70d07f!2sWeWork%20Sinarmas%20MSIG%20Tower!5e0!3m2!1sen!2sid!4v1684983001341!5m2!1sen!2sid" width="360" height="460" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'
+                        : '<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15865.606422642355!2d106.8222893!3d-6.2106448!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f55e2d3fbe1f%3A0x9a3af0621b70d07f!2sWeWork%20Sinarmas%20MSIG%20Tower!5e0!3m2!1sen!2sid!4v1684983001341!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'
                     }
                   />
                 </div>
@@ -1257,7 +1254,7 @@ function PlasmicHomepage__RenderFunc(props: {
                   sty.text__uwzXi
                 )}
               >
-                {"© 2023 by Indonesia Digital Rupiah"}
+                {"\u00a9 2023 by Indonesia Digital Rupiah"}
               </div>
               <p.Stack
                 as={"div"}
@@ -1269,11 +1266,9 @@ function PlasmicHomepage__RenderFunc(props: {
                   data-plasmic-override={overrides.cmc}
                   className={classNames(projectcss.all, projectcss.a, sty.cmc)}
                   component={Link}
-                  href={
-                    "https://coinmarketcap.com/currencies/idr-digital/" as const
-                  }
+                  href={"https://coinmarketcap.com/currencies/idr-digital/"}
                   platform={"nextjs"}
-                  target={"_blank" as const}
+                  target={"_blank"}
                 >
                   <CmcsvgIcon
                     className={classNames(projectcss.all, sty.svg__bBfyP)}
@@ -1289,9 +1284,9 @@ function PlasmicHomepage__RenderFunc(props: {
                     sty.telegram
                   )}
                   component={Link}
-                  href={"https://t.me/iddr_io" as const}
+                  href={"https://t.me/iddr_io"}
                   platform={"nextjs"}
-                  target={"_blank" as const}
+                  target={"_blank"}
                 >
                   <IconIcon
                     className={classNames(projectcss.all, sty.svg__asEhz)}
@@ -1307,9 +1302,9 @@ function PlasmicHomepage__RenderFunc(props: {
                     sty.twitter
                   )}
                   component={Link}
-                  href={"https://twitter.com/iddr_io" as const}
+                  href={"https://twitter.com/iddr_io"}
                   platform={"nextjs"}
-                  target={"_blank" as const}
+                  target={"_blank"}
                 >
                   <Icon2Icon
                     className={classNames(projectcss.all, sty.svg__bkLqu)}
@@ -1355,68 +1350,40 @@ function PlasmicHomepage__RenderFunc(props: {
               slot={
                 <Button2
                   className={classNames("__wab_instance", sty.button2__bNeGi)}
-                  color={"clear" as const}
+                  color={"clear"}
                   endIcon={
                     <Icon38Icon
                       className={classNames(projectcss.all, sty.svg__wa2G5)}
                       role={"img"}
                     />
                   }
-                  link={"#home" as const}
+                  link={"#home"}
                   onClick={async event => {
                     const $steps = {};
                     $steps["updateNavbarIsMenuOpen"] = true
                       ? (() => {
                           const actionArgs = {
-                            variable: __wrapUserFunction(
-                              {
-                                type: "InteractionArgLoc",
-                                actionName: "updateVariable",
-                                interactionUuid: "C4HSr4IYhs",
-                                componentUuid: "S-EPZS57Iq32",
-                                argName: "variable"
-                              },
-                              () => ({
-                                objRoot: $state,
-                                variablePath: ["navbar", "isMenuOpen"]
-                              })
-                            ),
-                            operation: __wrapUserFunction(
-                              {
-                                type: "InteractionArgLoc",
-                                actionName: "updateVariable",
-                                interactionUuid: "C4HSr4IYhs",
-                                componentUuid: "S-EPZS57Iq32",
-                                argName: "operation"
-                              },
-                              () => 4
-                            )
-                          };
-                          return __wrapUserFunction(
-                            {
-                              type: "InteractionLoc",
-                              actionName: "updateVariable",
-                              interactionUuid: "C4HSr4IYhs",
-                              componentUuid: "S-EPZS57Iq32"
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["navbar", "isMenuOpen"]
                             },
-                            () =>
-                              (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                            operation: 4
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                                const oldValue = p.get(objRoot, variablePath);
-                                p.set(objRoot, variablePath, !oldValue);
-                                return !oldValue;
-                              })?.apply(null, [actionArgs]),
-                            actionArgs
-                          );
+                            const oldValue = p.get(objRoot, variablePath);
+                            p.set(objRoot, variablePath, !oldValue);
+                            return !oldValue;
+                          })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
@@ -1424,16 +1391,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       typeof $steps["updateNavbarIsMenuOpen"].then ===
                         "function"
                     ) {
-                      $steps["updateNavbarIsMenuOpen"] =
-                        await __wrapUserPromise(
-                          {
-                            type: "InteractionLoc",
-                            actionName: "updateVariable",
-                            interactionUuid: "C4HSr4IYhs",
-                            componentUuid: "S-EPZS57Iq32"
-                          },
-                          $steps["updateNavbarIsMenuOpen"]
-                        );
+                      $steps["updateNavbarIsMenuOpen"] = await $steps[
+                        "updateNavbarIsMenuOpen"
+                      ];
                     }
                   }}
                   startIcon={
@@ -1458,68 +1418,40 @@ function PlasmicHomepage__RenderFunc(props: {
               slot2={
                 <Button2
                   className={classNames("__wab_instance", sty.button2__xFq2E)}
-                  color={"clear" as const}
+                  color={"clear"}
                   endIcon={
                     <Icon38Icon
                       className={classNames(projectcss.all, sty.svg__k7YTd)}
                       role={"img"}
                     />
                   }
-                  link={"#about" as const}
+                  link={"#about"}
                   onClick={async event => {
                     const $steps = {};
                     $steps["updateNavbarIsMenuOpen"] = true
                       ? (() => {
                           const actionArgs = {
-                            variable: __wrapUserFunction(
-                              {
-                                type: "InteractionArgLoc",
-                                actionName: "updateVariable",
-                                interactionUuid: "gClixM5Ir",
-                                componentUuid: "S-EPZS57Iq32",
-                                argName: "variable"
-                              },
-                              () => ({
-                                objRoot: $state,
-                                variablePath: ["navbar", "isMenuOpen"]
-                              })
-                            ),
-                            operation: __wrapUserFunction(
-                              {
-                                type: "InteractionArgLoc",
-                                actionName: "updateVariable",
-                                interactionUuid: "gClixM5Ir",
-                                componentUuid: "S-EPZS57Iq32",
-                                argName: "operation"
-                              },
-                              () => 4
-                            )
-                          };
-                          return __wrapUserFunction(
-                            {
-                              type: "InteractionLoc",
-                              actionName: "updateVariable",
-                              interactionUuid: "gClixM5Ir",
-                              componentUuid: "S-EPZS57Iq32"
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["navbar", "isMenuOpen"]
                             },
-                            () =>
-                              (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                            operation: 4
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                                const oldValue = p.get(objRoot, variablePath);
-                                p.set(objRoot, variablePath, !oldValue);
-                                return !oldValue;
-                              })?.apply(null, [actionArgs]),
-                            actionArgs
-                          );
+                            const oldValue = p.get(objRoot, variablePath);
+                            p.set(objRoot, variablePath, !oldValue);
+                            return !oldValue;
+                          })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
@@ -1527,16 +1459,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       typeof $steps["updateNavbarIsMenuOpen"].then ===
                         "function"
                     ) {
-                      $steps["updateNavbarIsMenuOpen"] =
-                        await __wrapUserPromise(
-                          {
-                            type: "InteractionLoc",
-                            actionName: "updateVariable",
-                            interactionUuid: "gClixM5Ir",
-                            componentUuid: "S-EPZS57Iq32"
-                          },
-                          $steps["updateNavbarIsMenuOpen"]
-                        );
+                      $steps["updateNavbarIsMenuOpen"] = await $steps[
+                        "updateNavbarIsMenuOpen"
+                      ];
                     }
                   }}
                   startIcon={
@@ -1561,68 +1486,40 @@ function PlasmicHomepage__RenderFunc(props: {
               slot3={
                 <Button2
                   className={classNames("__wab_instance", sty.button2__bKkjH)}
-                  color={"clear" as const}
+                  color={"clear"}
                   endIcon={
                     <Icon38Icon
                       className={classNames(projectcss.all, sty.svg__aL24D)}
                       role={"img"}
                     />
                   }
-                  link={"#team" as const}
+                  link={"#team"}
                   onClick={async event => {
                     const $steps = {};
                     $steps["updateNavbarIsMenuOpen"] = true
                       ? (() => {
                           const actionArgs = {
-                            variable: __wrapUserFunction(
-                              {
-                                type: "InteractionArgLoc",
-                                actionName: "updateVariable",
-                                interactionUuid: "HVcRtLNau",
-                                componentUuid: "S-EPZS57Iq32",
-                                argName: "variable"
-                              },
-                              () => ({
-                                objRoot: $state,
-                                variablePath: ["navbar", "isMenuOpen"]
-                              })
-                            ),
-                            operation: __wrapUserFunction(
-                              {
-                                type: "InteractionArgLoc",
-                                actionName: "updateVariable",
-                                interactionUuid: "HVcRtLNau",
-                                componentUuid: "S-EPZS57Iq32",
-                                argName: "operation"
-                              },
-                              () => 4
-                            )
-                          };
-                          return __wrapUserFunction(
-                            {
-                              type: "InteractionLoc",
-                              actionName: "updateVariable",
-                              interactionUuid: "HVcRtLNau",
-                              componentUuid: "S-EPZS57Iq32"
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["navbar", "isMenuOpen"]
                             },
-                            () =>
-                              (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                            operation: 4
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                                const oldValue = p.get(objRoot, variablePath);
-                                p.set(objRoot, variablePath, !oldValue);
-                                return !oldValue;
-                              })?.apply(null, [actionArgs]),
-                            actionArgs
-                          );
+                            const oldValue = p.get(objRoot, variablePath);
+                            p.set(objRoot, variablePath, !oldValue);
+                            return !oldValue;
+                          })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
@@ -1630,16 +1527,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       typeof $steps["updateNavbarIsMenuOpen"].then ===
                         "function"
                     ) {
-                      $steps["updateNavbarIsMenuOpen"] =
-                        await __wrapUserPromise(
-                          {
-                            type: "InteractionLoc",
-                            actionName: "updateVariable",
-                            interactionUuid: "HVcRtLNau",
-                            componentUuid: "S-EPZS57Iq32"
-                          },
-                          $steps["updateNavbarIsMenuOpen"]
-                        );
+                      $steps["updateNavbarIsMenuOpen"] = await $steps[
+                        "updateNavbarIsMenuOpen"
+                      ];
                     }
                   }}
                   startIcon={
@@ -1664,68 +1554,40 @@ function PlasmicHomepage__RenderFunc(props: {
               slot4={
                 <Button2
                   className={classNames("__wab_instance", sty.button2__nzTzT)}
-                  color={"clear" as const}
+                  color={"clear"}
                   endIcon={
                     <Icon38Icon
                       className={classNames(projectcss.all, sty.svg__rmG2C)}
                       role={"img"}
                     />
                   }
-                  link={"#contact" as const}
+                  link={"#contact"}
                   onClick={async event => {
                     const $steps = {};
                     $steps["updateNavbarIsMenuOpen"] = true
                       ? (() => {
                           const actionArgs = {
-                            variable: __wrapUserFunction(
-                              {
-                                type: "InteractionArgLoc",
-                                actionName: "updateVariable",
-                                interactionUuid: "kM2UgpTWd",
-                                componentUuid: "S-EPZS57Iq32",
-                                argName: "variable"
-                              },
-                              () => ({
-                                objRoot: $state,
-                                variablePath: ["navbar", "isMenuOpen"]
-                              })
-                            ),
-                            operation: __wrapUserFunction(
-                              {
-                                type: "InteractionArgLoc",
-                                actionName: "updateVariable",
-                                interactionUuid: "kM2UgpTWd",
-                                componentUuid: "S-EPZS57Iq32",
-                                argName: "operation"
-                              },
-                              () => 4
-                            )
-                          };
-                          return __wrapUserFunction(
-                            {
-                              type: "InteractionLoc",
-                              actionName: "updateVariable",
-                              interactionUuid: "kM2UgpTWd",
-                              componentUuid: "S-EPZS57Iq32"
+                            variable: {
+                              objRoot: $state,
+                              variablePath: ["navbar", "isMenuOpen"]
                             },
-                            () =>
-                              (({
-                                variable,
-                                value,
-                                startIndex,
-                                deleteCount
-                              }) => {
-                                if (!variable) {
-                                  return;
-                                }
-                                const { objRoot, variablePath } = variable;
+                            operation: 4
+                          };
+                          return (({
+                            variable,
+                            value,
+                            startIndex,
+                            deleteCount
+                          }) => {
+                            if (!variable) {
+                              return;
+                            }
+                            const { objRoot, variablePath } = variable;
 
-                                const oldValue = p.get(objRoot, variablePath);
-                                p.set(objRoot, variablePath, !oldValue);
-                                return !oldValue;
-                              })?.apply(null, [actionArgs]),
-                            actionArgs
-                          );
+                            const oldValue = p.get(objRoot, variablePath);
+                            p.set(objRoot, variablePath, !oldValue);
+                            return !oldValue;
+                          })?.apply(null, [actionArgs]);
                         })()
                       : undefined;
                     if (
@@ -1733,16 +1595,9 @@ function PlasmicHomepage__RenderFunc(props: {
                       typeof $steps["updateNavbarIsMenuOpen"].then ===
                         "function"
                     ) {
-                      $steps["updateNavbarIsMenuOpen"] =
-                        await __wrapUserPromise(
-                          {
-                            type: "InteractionLoc",
-                            actionName: "updateVariable",
-                            interactionUuid: "kM2UgpTWd",
-                            componentUuid: "S-EPZS57Iq32"
-                          },
-                          $steps["updateNavbarIsMenuOpen"]
-                        );
+                      $steps["updateNavbarIsMenuOpen"] = await $steps[
+                        "updateNavbarIsMenuOpen"
+                      ];
                     }
                   }}
                   startIcon={
@@ -1777,65 +1632,36 @@ function PlasmicHomepage__RenderFunc(props: {
                   $steps["updateNavbarIsMenuOpen"] = true
                     ? (() => {
                         const actionArgs = {
-                          variable: __wrapUserFunction(
-                            {
-                              type: "InteractionArgLoc",
-                              actionName: "updateVariable",
-                              interactionUuid: "MyFjvX2trO",
-                              componentUuid: "S-EPZS57Iq32",
-                              argName: "variable"
-                            },
-                            () => ({
-                              objRoot: $state,
-                              variablePath: ["navbar", "isMenuOpen"]
-                            })
-                          ),
-                          operation: __wrapUserFunction(
-                            {
-                              type: "InteractionArgLoc",
-                              actionName: "updateVariable",
-                              interactionUuid: "MyFjvX2trO",
-                              componentUuid: "S-EPZS57Iq32",
-                              argName: "operation"
-                            },
-                            () => 4
-                          )
-                        };
-                        return __wrapUserFunction(
-                          {
-                            type: "InteractionLoc",
-                            actionName: "updateVariable",
-                            interactionUuid: "MyFjvX2trO",
-                            componentUuid: "S-EPZS57Iq32"
+                          variable: {
+                            objRoot: $state,
+                            variablePath: ["navbar", "isMenuOpen"]
                           },
-                          () =>
-                            (({ variable, value, startIndex, deleteCount }) => {
-                              if (!variable) {
-                                return;
-                              }
-                              const { objRoot, variablePath } = variable;
+                          operation: 4
+                        };
+                        return (({
+                          variable,
+                          value,
+                          startIndex,
+                          deleteCount
+                        }) => {
+                          if (!variable) {
+                            return;
+                          }
+                          const { objRoot, variablePath } = variable;
 
-                              const oldValue = p.get(objRoot, variablePath);
-                              p.set(objRoot, variablePath, !oldValue);
-                              return !oldValue;
-                            })?.apply(null, [actionArgs]),
-                          actionArgs
-                        );
+                          const oldValue = p.get(objRoot, variablePath);
+                          p.set(objRoot, variablePath, !oldValue);
+                          return !oldValue;
+                        })?.apply(null, [actionArgs]);
                       })()
                     : undefined;
                   if (
                     typeof $steps["updateNavbarIsMenuOpen"] === "object" &&
                     typeof $steps["updateNavbarIsMenuOpen"].then === "function"
                   ) {
-                    $steps["updateNavbarIsMenuOpen"] = await __wrapUserPromise(
-                      {
-                        type: "InteractionLoc",
-                        actionName: "updateVariable",
-                        interactionUuid: "MyFjvX2trO",
-                        componentUuid: "S-EPZS57Iq32"
-                      },
-                      $steps["updateNavbarIsMenuOpen"]
-                    );
+                    $steps["updateNavbarIsMenuOpen"] = await $steps[
+                      "updateNavbarIsMenuOpen"
+                    ];
                   }
                 }}
                 platform={"nextjs"}
